@@ -3,12 +3,13 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
-          ŁĄCZYMY NAUKĘ,<br />
-          EDUKACJĘ I SPOŁECZNĄ<br />
-          SOLIDARNOŚĆ NA RZECZ<br />
-          MIĘDZYNARODOWEGO DIALOGU
+          <span v-for="(line, index) in langState.t.main.heroTitleLines" :key="index">
+            {{ line }}
+          </span>
         </h1>
-        <RouterLink to="#contact" class="hero-button">KONTAKT</RouterLink>
+        <RouterLink to="#contact" class="hero-button">
+          {{ langState.t.main.heroButton }}
+        </RouterLink>
       </div>
       <div class="hero-image">
         <img src="/images/hero.png" alt="Ilustracja" />
@@ -18,7 +19,7 @@
 </template>
 
 <script setup>
-// brak logiki na razie
+import langState from '@/lang/langState'
 </script>
 
 <style scoped>
@@ -43,11 +44,17 @@
 }
 
 .hero-title {
+  display: flex;
+  flex-direction: column;
   font-size: 2rem;
   font-weight: bold;
   color: #4b2c92;
   line-height: 1.4;
   margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+  display: block;
 }
 
 .hero-button {
@@ -73,6 +80,7 @@
   max-width: 100%;
   height: auto;
 }
+
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;

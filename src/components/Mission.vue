@@ -1,9 +1,9 @@
 <template>
   <section class="mission-section" id="mission">
     <div class="mission-container">
-      <h2 class="mission-heading">Nasza misja</h2>
+      <h2 class="mission-heading">{{ langState.t.main.mission.title }}</h2>
       <p class="mission-motto">
-        Łączymy naukę, edukację i społeczną solidarność na rzecz międzynarodowego dialogu.
+        {{ langState.t.main.mission.motto }}
       </p>
 
       <div class="goals-grid">
@@ -15,16 +15,22 @@
       </div>
 
       <div class="values">
-        <span v-for="(value, index) in values" :key="index" class="value">
+        <span
+          v-for="(value, index) in langState.t.main.mission.values"
+          :key="index"
+          class="value"
+        >
           {{ value }}
-          <span v-if="index < values.length - 1" class="separator">|</span>
+          <span v-if="index < langState.t.main.mission.values.length - 1" class="separator">|</span>
         </span>
       </div>
     </div>
   </section>
 </template>
 
+
 <script setup>
+import langState from '@/lang/langState'
 import {
   BookOpen,
   GraduationCap,
@@ -32,41 +38,17 @@ import {
   Handshake,
   HelpingHand,
 } from 'lucide-vue-next'
+import { computed } from 'vue'
 
-const goals = [
-  {
-    title: "Badania naukowe",
-    description: "Zarządzanie funduszami badawczymi w dziedzinie nauk społecznych i humanistycznych.",
-    icon: BookOpen,
-  },
-  {
-    title: "Rozwój edukacji",
-    description: "Wspieranie jakości kształcenia w Polsce i za granicą.",
-    icon: GraduationCap,
-  },
-  {
-    title: "Promocja kultury",
-    description: "Upowszechnianie języka polskiego i dziedzictwa transformacji ustrojowej.",
-    icon: Globe,
-  },
-  {
-    title: "Wymiana i samorządność",
-    description: "Wsparcie dyplomacji społecznej i wymiany kulturowej.",
-    icon: Handshake,
-  },
-  {
-    title: "Pomoc i integracja",
-    description: "Pomoc uchodźcom i migrantom w integracji społecznej.",
-    icon: HelpingHand,
-  },
-]
+const icons = [BookOpen, GraduationCap, Globe, HelpingHand]
 
-const values = [
-  "Niezależność polityczna",
-  "Różnorodność kulturowa",
-  "Otwartość na współpracę",
-  "Odpowiedzialność społeczna"
-]
+// połączenie tłumaczeń z ikonami jako computed – reaguje na zmianę języka
+const goals = computed(() =>
+  langState.t.main.mission.goals.map((goal, index) => ({
+    ...goal,
+    icon: icons[index]
+  }))
+)
 </script>
 
 <style scoped>

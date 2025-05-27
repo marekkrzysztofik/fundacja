@@ -5,20 +5,20 @@
         <RouterLink to="#hero">Fundacja</RouterLink>
       </div>
       <nav class="navbar-menu">
-        <a href="#mission">Misja</a>
-        <a href="#priorities">Priorytety</a>
-        <a href="#projects">Projekty</a>
-        <a href="#team">O nas</a>
-        <a href="#partners">Partnerzy</a>
-        <a href="#news">Aktualności</a>
-        <a href="#contact" class="contact-button">Kontakt</a>
+        <a href="#mission">{{ langState.t.main.navbar.mission }}</a>
+        <a href="#priorities">{{ langState.t.main.navbar.priorities }}</a>
+        <a href="#projects">{{ langState.t.main.navbar.projects }}</a>
+        <a href="#team">{{ langState.t.main.navbar.about }}</a>
+        <a href="#partners">{{ langState.t.main.navbar.partners }}</a>
+        <a href="#news">{{ langState.t.main.navbar.news }}</a>
+        <a href="#contact" class="contact-button">{{ langState.t.main.navbar.contact }}</a>
       </nav>
     </div>
   </header>
 </template>
 
 <script setup>
-// brak logiki na razie – linki prowadzą do ID sekcji
+import langState from '@/lang/langState'
 </script>
 
 <style scoped>
