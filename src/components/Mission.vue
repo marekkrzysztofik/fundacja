@@ -26,20 +26,26 @@
 
 <script setup>
 import langState from '@/lang/langState'
-import {
-  BookOpen,
-  GraduationCap,
-  Globe,
-  HelpingHand,
-} from 'lucide-vue-next'
 import { onMounted, computed } from 'vue'
+import { FlaskConical, GraduationCap, Users, Globe2, Flag, Share2, Building, HelpingHand } from 'lucide-vue-next'
 
-const icons = [BookOpen, GraduationCap, Globe, HelpingHand]
+const iconMap = {
+  FlaskConical,
+  GraduationCap,
+  Users,
+  Globe2,
+  Flag,
+  Share2,
+  Building,
+  HelpingHand,
+}
+
+
 
 const goals = computed(() =>
-  langState.t.main.mission.goals.map((goal, index) => ({
+  langState.t.main.mission.goals.map((goal) => ({
     ...goal,
-    icon: icons[index]
+    icon: iconMap[goal.icon]
   }))
 )
 
@@ -73,7 +79,7 @@ onMounted(() => {
 }
 
 .mission-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: center;
 }
@@ -93,19 +99,24 @@ onMounted(() => {
 
 .goals-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-bottom: 3rem;
 }
 
 .goal {
   opacity: 0;
-  transform: translateY(30px);
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* elementy zaczynają od góry */
   transition: all 0.6s ease-out;
   padding: 1rem;
   border-radius: 8px;
   background-color: #f5f1fb;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
 .goal.visible {
@@ -114,15 +125,16 @@ onMounted(() => {
 }
 
 .goal-icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   color: var(--violet);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .goal h3 {
   font-size: 1.1rem;
   font-weight: 600;
+  min-height: 3.2em; /* np. miejsce na 2 linijki */
   color: var(--violet);
   margin-bottom: 0.5rem;
 }
@@ -130,6 +142,7 @@ onMounted(() => {
 .goal p {
   font-size: 0.95rem;
   color: var(--subtitle);
+  min-height: 4.5em; /* np. miejsce na 3 linijki */
 }
 
 .values {

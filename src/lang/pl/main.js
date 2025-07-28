@@ -18,7 +18,7 @@ export default {
   heroButton: 'KONTAKT',
 
 
-priorities: {
+  priorities: {
     title: 'Priorytety na rok 2025',
     intro: 'Tegoroczne działania koncentrują się na wsparciu obywateli Ukrainy dotkniętych wojną.',
     items: [
@@ -63,23 +63,48 @@ priorities: {
     title: 'Nasza misja',
     motto: 'Łączymy naukę, edukację i społeczną solidarność na rzecz międzynarodowego dialogu.',
     goals: [
-      {
-        title: 'Badania naukowe',
-        description: 'Zarządzanie funduszami badawczymi w dziedzinie nauk społecznych i humanistycznych.'
-      },
-      {
-        title: 'Rozwój edukacji',
-        description: 'Wspieranie jakości kształcenia w Polsce i za granicą.'
-      },
-      {
-        title: 'Promocja kultury',
-        description: 'Upowszechnianie języka polskiego i dziedzictwa transformacji ustrojowej.'
-      },
-      {
-        title: 'Pomoc i integracja',
-        description: 'Pomoc uchodźcom i migrantom w integracji społecznej.'
-      }
-    ],
+  {
+    title: 'Badania i rozwój nauki',
+    description: 'Dążymy do wspierania badań i projektów w dziedzinie nauk społecznych i humanistycznych oraz do efektywnego zarządzania funduszami naukowymi.',
+    icon: 'FlaskConical' // eksperymenty, badania
+  },
+  {
+    title: 'Wspieranie edukacji',
+    description: 'Naszym celem jest podnoszenie jakości kształcenia, rozwój oświaty, wychowania i kompetencji – zarówno w Polsce, jak i za granicą.',
+    icon: 'GraduationCap' // edukacja, nauka
+  },
+  {
+    title: 'Dialog międzykulturowy',
+    description: 'Chcemy budować przyjazne relacje między krajami poprzez rozwój dyplomacji społecznej oraz wymiany kulturowej i artystycznej.',
+    icon: 'Users' // spotkania, relacje
+  },
+  {
+    title: 'Międzynarodowa współpraca',
+    description: 'Zależy nam na rozwijaniu współpracy między instytucjami edukacyjnymi, organizacjami, samorządami i partnerami z różnych państw.',
+    icon: 'Globe2' // współpraca międzynarodowa
+  },
+  {
+    title: 'Promocja Polski',
+    description: 'Dążymy do upowszechniania języka polskiego, kultury, nauki oraz dziedzictwa transformacji ustrojowej na arenie międzynarodowej.',
+    icon: 'Flag' // symbol kraju, promocja Polski
+  },
+  {
+    title: 'Wymiana doświadczeń',
+    description: 'Chcemy dzielić się polskim doświadczeniem integracji europejskiej i reform – zwłaszcza z krajami Partnerstwa Wschodniego.',
+    icon: 'Share2' // wymiana, dzielenie się
+  },
+  {
+    title: 'Wzmacnianie społeczeństwa obywatelskiego',
+    description: 'Naszą misją jest promowanie samorządności, społeczeństwa obywatelskiego, gospodarki rynkowej i towarzyszących im reform.',
+    icon: 'Building' // społeczność, struktury
+  },
+  {
+    title: 'Wsparcie dla uchodźców i migrantów',
+    description: 'Dążymy do wspierania uchodźców wojennych i migrantów w ich integracji społecznej i adaptacji kulturowej w Polsce.',
+    icon: 'HelpingHand' // pomoc, wsparcie
+  }
+],
+
     values: [
       'Niezależność polityczna',
       'Różnorodność kulturowa',
@@ -111,7 +136,7 @@ priorities: {
     ]
   },
 
-   contact: {
+  contact: {
     title: 'Formularz kontaktowy',
     name: 'Imię',
     surname: 'Nazwisko',
