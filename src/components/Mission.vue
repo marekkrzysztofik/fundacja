@@ -15,11 +15,7 @@
       </div>
 
       <div class="values">
-        <span
-          v-for="(value, index) in langState.t.main.mission.values"
-          :key="index"
-          class="value"
-        >
+        <span v-for="(value, index) in langState.t.main.mission.values" :key="index" class="value">
           {{ value }}
           <span v-if="index < langState.t.main.mission.values.length - 1" class="separator">|</span>
         </span>
@@ -28,27 +24,46 @@
   </section>
 </template>
 
-
 <script setup>
 import langState from '@/lang/langState'
 import {
   BookOpen,
   GraduationCap,
   Globe,
-  Handshake,
   HelpingHand,
 } from 'lucide-vue-next'
-import { computed } from 'vue'
+import { onMounted, computed } from 'vue'
 
 const icons = [BookOpen, GraduationCap, Globe, HelpingHand]
 
-// połączenie tłumaczeń z ikonami jako computed – reaguje na zmianę języka
 const goals = computed(() =>
   langState.t.main.mission.goals.map((goal, index) => ({
     ...goal,
     icon: icons[index]
   }))
 )
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+        } else {
+          entry.target.classList.remove('visible')
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+
+  const items = document.querySelectorAll('.goal')
+  items.forEach((el, i) => {
+    el.style.transitionDelay = `${i * 220}ms`
+    observer.observe(el)
+  })
+})
+
 </script>
 
 <style scoped>
@@ -63,10 +78,10 @@ const goals = computed(() =>
   text-align: center;
 }
 
-.mission-heading {
+.mission-heading { 
   font-size: 2rem;
   font-weight: bold;
-  color: #4b2c92;
+  color: var(--violet);
   margin-bottom: 1rem;
 }
 
@@ -84,35 +99,43 @@ const goals = computed(() =>
 }
 
 .goal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
   padding: 1rem;
   border-radius: 8px;
   background-color: #f5f1fb;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+.goal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .goal-icon {
   width: 48px;
   height: 48px;
-  color: #4b2c92;
+  color: var(--violet);
   margin-bottom: 1rem;
 }
 
 .goal h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #4b2c92;
+  color: var(--violet);
   margin-bottom: 0.5rem;
 }
 
 .goal p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--subtitle);
 }
 
 .values {
   font-size: 1rem;
   font-weight: 500;
-  color: #4b2c92;
+  color: var(--violet);
 }
 
 .separator {

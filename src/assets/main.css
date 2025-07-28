@@ -2,9 +2,9 @@
 
 :root {
   --primary: #D13C30;
-  --redtitle: #1a1a1a;
+  --violet: #4b2c92;
   --title: #1a1a1a;
-  --subtitle: #666666;
+  --subtitle: #333;
   --black: #3A3335;
   --white: #fff;
   --blue: #575790;
@@ -15,8 +15,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+}
+.flex {
+  display: flex;
 }

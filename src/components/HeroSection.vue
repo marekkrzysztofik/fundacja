@@ -7,24 +7,33 @@
             {{ line }}
           </span>
         </h1>
-        <RouterLink to="#contact" class="hero-button">
+        <a @click="visible = true" class="hero-button">
           {{ langState.t.main.heroButton }}
-        </RouterLink>
+        </a>
       </div>
       <div class="hero-image">
-        <img src="/images/hero.png" alt="Ilustracja" />
+        <img src="/images/ee.jpg" alt="Ilustracja" />
       </div>
     </div>
   </section>
+   <Dialog v-model:visible="visible" modal>
+    <ContactForm />
+  </Dialog>
 </template>
 
 <script setup>
 import langState from '@/lang/langState'
+import ContactForm from '@/components/ContactForm.vue';
+import Dialog from 'primevue/dialog';
+import { ref, } from 'vue'
+
+const visible = ref(false);
 </script>
 
 <style scoped>
 .hero-section {
-  background-color: #f5f1fb;
+  background: url('/images/ee.jpg') center center / cover no-repeat;
+ /* background-color: #f5f1fb;*/
   padding: 4rem 1.5rem;
 }
 
@@ -58,11 +67,14 @@ import langState from '@/lang/langState'
 }
 
 .hero-button {
+
   background-color: #4b2c92;
   color: white;
+  border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
+  cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
@@ -79,6 +91,44 @@ import langState from '@/lang/langState'
 .hero-image img {
   max-width: 100%;
   height: auto;
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-text {
+  padding: 1rem 3rem;
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.hero-actions {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.hero-image {
+  padding-right: 48px;
+  animation: slideInRight 0.8s ease-out forwards;
 }
 
 @media (max-width: 768px) {
