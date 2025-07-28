@@ -1,10 +1,12 @@
 <template>
-  <section ref="section" class="scroll-section" id="projects" :style="{height: `${projects.length * 100 }vh` }">
-    <div ref="sticky" class="sticky-wrapper">
-      <div ref="scrollTrack" class="scroll-track" :style="{ transform: `translateX(-${ currentSlide * 100}vw)` }">
+  <section class="scroll-section" id="projects">
+    <div class="slider-wrapper">
+      <!-- 🔹 Tor slajdów -->
+      <div class="scroll-track" :style="{ transform: `translateX(-${currentSlide * 100}vw)` }">
         <div v-for="project in projects" :key="project.id" class="slide">
           <h2 class="heading">{{ project.title }}</h2>
           <p class="intro">{{ project.description }}</p>
+
           <div class="container">
             <div>
               <div class="image-wrapper">
@@ -13,10 +15,7 @@
               <button class="cta-button">{{ project.cta }}</button>
             </div>
 
-
             <div class="text-content">
-
-
               <div class="card-grid">
                 <div class="card">
                   <div class="card-icon-title">
@@ -49,34 +48,29 @@
           </div>
         </div>
       </div>
+
+      <!-- 🔹 Nawigacja slidera -->
+      <button class="nav-btn left" @click="prevSlide">‹</button>
+      <button class="nav-btn right" @click="nextSlide">›</button>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref } from 'vue'
 import { MapPin, BookOpen, Target } from 'lucide-vue-next'
-const section = ref(null)
+
 const currentSlide = ref(0)
+
 const projects = [
   {
     id: 'uniwersytet',
     title: 'Ogólnopolski Uniwersytet Trzeciego Wieku dla Ukraińców',
     description: 'Program edukacyjny w formie hybrydowej wspierający rozwój i integrację seniorów z Ukrainy.',
     image: '/images/project1.png',
-    format: {
-      title: 'Format',
-      content: 'Zajęcia online i stacjonarne w Gdańsku',
-    },
-    modules: {
-      title: 'Moduły',
-      list: ['Język polski', 'Obywatelstwo cyfrowe', 'Aktywizacja zawodowa'],
-    },
-    result: {
-      title: 'Rezultat',
-      count: '500+ absolwentów rocznie',
-      description: 'Rozwój sieci mentorów senioralnych',
-    },
+    format: { title: 'Format', content: 'Zajęcia online i stacjonarne w Gdańsku' },
+    modules: { title: 'Moduły', list: ['Język polski', 'Obywatelstwo cyfrowe', 'Aktywizacja zawodowa'] },
+    result: { title: 'Rezultat', count: '500+ absolwentów rocznie', description: 'Rozwój sieci mentorów senioralnych' },
     cta: 'Dołącz do nas',
   },
   {
@@ -84,23 +78,9 @@ const projects = [
     title: 'Płomyk nadziei',
     description: '10-dniowe wizyty edukacyjno-kulturowe dla młodzieży z Ukrainy.',
     image: '/images/project2.png',
-    format: {
-      title: 'Cel',
-      content: 'Edukacyjno-kulturowe turnusy młodzieżowe',
-    },
-    modules: {
-      title: 'Aktywności',
-      list: [
-        'Spotkania z nauczycielami UG',
-        'Warsztaty historyczne',
-        'Wycieczki po Trójmieście',
-      ],
-    },
-    result: {
-      title: 'Skala 2025',
-      count: '6 turnusów × 40 uczestników',
-      description: 'Ponad 240 młodych osób w jednym roku',
-    },
+    format: { title: 'Cel', content: 'Edukacyjno-kulturowe turnusy młodzieżowe' },
+    modules: { title: 'Aktywności', list: ['Spotkania z nauczycielami UG', 'Warsztaty historyczne', 'Wycieczki po Trójmieście'] },
+    result: { title: 'Skala 2025', count: '6 turnusów × 40 uczestników', description: 'Ponad 240 młodych osób w jednym roku' },
     cta: 'Dołącz do turnusu',
   },
   {
@@ -108,56 +88,32 @@ const projects = [
     title: 'Staże naukowe w Gdańsku',
     description: 'Program badawczy z opieką mentorską dla młodych naukowców z Ukrainy.',
     image: '/images/project3.png',
-    format: {
-      title: 'Partner wiodący',
-      content: 'Uniwersytet Gdański',
-    },
-    modules: {
-      title: 'Dyscypliny',
-      list: ['Socjologia', 'Politologia', 'Kulturoznawstwo', 'Ekonomia'],
-    },
-    result: {
-      title: 'Czas trwania',
-      count: '3–6 miesięcy',
-      description: 'Stypendium, mentor, publikacja w czasopiśmie UG',
-    },
+    format: { title: 'Partner wiodący', content: 'Uniwersytet Gdański' },
+    modules: { title: 'Dyscypliny', list: ['Socjologia', 'Politologia', 'Kulturoznawstwo', 'Ekonomia'] },
+    result: { title: 'Czas trwania', count: '3–6 miesięcy', description: 'Stypendium, mentor, publikacja w czasopiśmie UG' },
     cta: 'Aplikuj na staż',
   },
 ]
 
-function onScroll() {
-  const sectionEl = section.value
-  const scrollTop = window.scrollY
-  const sectionTop = sectionEl.offsetTop
-  const sectionHeight = sectionEl.offsetHeight - window.innerHeight
-  const progress = Math.min(Math.max((scrollTop - sectionTop) / sectionHeight, 0), 1)
-
-  // Wylicz aktualny slajd jako pełne "kliknięcie"
-  currentSlide.value = Math.min(Math.floor(progress * projects.length), projects.length - 1)
+function nextSlide() {
+  if (currentSlide.value < projects.length - 1) currentSlide.value++
 }
-
-onMounted(() => {
-  window.addEventListener('scroll', onScroll)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
-})
+function prevSlide() {
+  if (currentSlide.value > 0) currentSlide.value--
+}
 </script>
 
 <style scoped>
 .scroll-section {
   position: relative;
   background: #f2f2f2;
+  overflow: hidden;
 }
 
-.sticky-wrapper {
-  position: sticky;
-  top: 0;
+.slider-wrapper {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
 }
 
 .scroll-track {
@@ -166,6 +122,7 @@ onBeforeUnmount(() => {
   transition: transform 0.6s ease-in-out;
 }
 
+/* SLIDE */
 .slide {
   flex: 0 0 100vw;
   height: 100vh;
@@ -229,21 +186,9 @@ onBeforeUnmount(() => {
   transition: transform 0.3s ease;
   border-left: 5px solid var(--violet);
 }
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  font-size: 1.1rem;
-  color: var(--violet);
-}
-
-.card ul {
-  padding-left: 1.2rem;
-  list-style: disc;
-  color: var(--subtitle);
-}
+.card:hover { transform: translateY(-5px); }
+.card h3 { font-size: 1.1rem; color: var(--violet); }
+.card ul { padding-left: 1.2rem; list-style: disc; color: var(--subtitle); }
 
 .card-icon-title {
   display: flex;
@@ -251,12 +196,7 @@ onBeforeUnmount(() => {
   gap: 0.5rem;
   margin-bottom: 0.7rem;
 }
-
-.card-icon {
-  width: 22px;
-  height: 22px;
-  color: var(--violet);
-}
+.card-icon { width: 22px; height: 22px; color: var(--violet); }
 
 .cta-button {
   background: var(--violet);
@@ -270,36 +210,32 @@ onBeforeUnmount(() => {
   font-weight: 600;
   box-shadow: 0 4px 14px rgba(142, 68, 173, 0.25);
 }
+.cta-button:hover { background: #732d91; }
 
-.cta-button:hover {
-  background: #732d91;
+/* 🔹 Nawigacja */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(91, 44, 111, 0.7);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
-
-
+.nav-btn.left { left: 20px; }
+.nav-btn.right { right: 20px; }
+.nav-btn:hover { background: rgba(91, 44, 111, 1); }
 
 /* RESPONSYWNOŚĆ */
 @media (max-width: 768px) {
-  .slide {
-    justify-content: center;
-    padding: 0 1rem;
-  }
-
-  .slide-content {
-    justify-content: center;
-  }
-
-  .slide-overlay {
-    max-width: 90%;
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-  .slide-overlay h2 {
-    font-size: 1.6rem;
-  }
-
-  .slide-overlay li {
-    font-size: 1rem;
-  }
+  .slide { justify-content: center; padding: 0 1rem; }
+  .container { flex-direction: column; align-items: center; }
+  .text-content { max-width: 100%; }
 }
 </style>
