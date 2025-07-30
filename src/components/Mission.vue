@@ -110,7 +110,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* elementy zaczynają od góry */
+  justify-content: center; /* elementy zaczynają od góry */
   transition: all 0.6s ease-out;
   padding: 1rem;
   border-radius: 8px;

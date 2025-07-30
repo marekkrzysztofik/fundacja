@@ -7,11 +7,13 @@
       </p>
 
       <div class="priority-grid">
-        <div
-          class="priority-row"
-          v-for="(priority, index) in langState.t.main.priorities.items"
-          :key="index"
-        >
+        <div class="priority-row">
+          <div class="priority-cell"> </div>
+          <div class="priority-cell title">Co?  </div>
+          <div class="priority-cell title"> Kto? </div>
+          <div class="priority-cell title"> Dlaczego? </div>
+        </div>
+        <div class="priority-row" v-for="(priority, index) in langState.t.main.priorities.items" :key="index">
           <div class="priority-cell heading">{{ priority.area }}</div>
           <div class="priority-cell">{{ priority.what }}</div>
           <div class="priority-cell">{{ priority.who }}</div>
@@ -68,7 +70,12 @@ import langState from '@/lang/langState'
   padding: 1.5rem;
   text-align: left;
 }
-
+.priority-row:first-child {
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  text-align: center;
+}
 .priority-cell {
   font-size: 0.95rem;
   color: #333;
@@ -76,6 +83,11 @@ import langState from '@/lang/langState'
 }
 
 .priority-cell.heading {
+  font-weight: 600;
+  color: #4b2c92;
+}
+.priority-cell.title {
+  font-size: 1.6rem;
   font-weight: 600;
   color: #4b2c92;
 }
