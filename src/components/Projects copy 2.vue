@@ -26,16 +26,23 @@
                 </div>
 
                 <div class="card">
-                  <p class="desc">Inicjatywa edukacyjna skierowana do osób starszych pochodzenia ukraińskiego, oferująca zajęcia w
-                    formule hybrydowej lub zdalnej. Program ma na celu aktywizację społeczną i integrację
-                    międzypokoleniową, a jego realizacja zakłada współpracę z samorządem lokalnym, w tym pozyskanie
-                    odpowiedniego lokalu.
-                    Uniwersytety Trzeciego Wieku to forma nieformalnej edukacji dorosłych, pozwalająca seniorom rozwijać
-                    zainteresowania, zdobywać wiedzę i budować więzi społeczne.
-                  </p>
+                  <div class="card-icon-title">
+                    <BookOpen class="card-icon" />
+                    <h3>{{ project.modules.title }}</h3>
+                  </div>
+                  <ul>
+                    <li v-for="(mod, index) in project.modules.list" :key="index">{{ mod }}</li>
+                  </ul>
                 </div>
 
-                
+                <div class="card">
+                  <div class="card-icon-title">
+                    <Target class="card-icon" />
+                    <h3>{{ project.result.title }}</h3>
+                  </div>
+                  <p>{{ project.result.count }}</p>
+                  <p>{{ project.result.description }}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -62,7 +69,6 @@ const projects = [
     description: 'Program edukacyjny w formie hybrydowej wspierający rozwój i integrację seniorów z Ukrainy.',
     image: '/images/project1.png',
     format: { title: 'Format', content: 'Zajęcia online i stacjonarne w Gdańsku' },
-    desc: '',
     modules: { title: 'Moduły', list: ['Język polski', 'Obywatelstwo cyfrowe', 'Aktywizacja zawodowa'] },
     result: { title: 'Rezultat', count: '500+ absolwentów rocznie', description: 'Rozwój sieci mentorów senioralnych' },
     cta: 'Dołącz do nas',
@@ -130,7 +136,6 @@ function prevSlide() {
 
 .container {
   display: flex;
-  justify-content: center;
   gap: 2rem;
 }
 
@@ -149,7 +154,7 @@ function prevSlide() {
 
 .text-content {
   flex: 1;
-  width: 500px;
+  max-width: 700px;
   text-align: left;
 }
 
@@ -181,21 +186,9 @@ function prevSlide() {
   transition: transform 0.3s ease;
   border-left: 5px solid var(--violet);
 }
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  font-size: 1.1rem;
-  color: var(--violet);
-}
-
-.card ul {
-  padding-left: 1.2rem;
-  list-style: disc;
-  color: var(--subtitle);
-}
+.card:hover { transform: translateY(-5px); }
+.card h3 { font-size: 1.1rem; color: var(--violet); }
+.card ul { padding-left: 1.2rem; list-style: disc; color: var(--subtitle); }
 
 .card-icon-title {
   display: flex;
@@ -203,12 +196,7 @@ function prevSlide() {
   gap: 0.5rem;
   margin-bottom: 0.7rem;
 }
-
-.card-icon {
-  width: 22px;
-  height: 22px;
-  color: var(--violet);
-}
+.card-icon { width: 22px; height: 22px; color: var(--violet); }
 
 .cta-button {
   background: var(--violet);
@@ -222,10 +210,7 @@ function prevSlide() {
   font-weight: 600;
   box-shadow: 0 4px 14px rgba(142, 68, 173, 0.25);
 }
-
-.cta-button:hover {
-  background: #732d91;
-}
+.cta-button:hover { background: #732d91; }
 
 /* 🔹 Nawigacja */
 .nav-btn {
@@ -243,33 +228,14 @@ function prevSlide() {
   border-radius: 50%;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
-
-.nav-btn.left {
-  left: 20px;
-}
-
-.nav-btn.right {
-  right: 20px;
-}
-
-.nav-btn:hover {
-  background: rgba(91, 44, 111, 1);
-}
+.nav-btn.left { left: 20px; }
+.nav-btn.right { right: 20px; }
+.nav-btn:hover { background: rgba(91, 44, 111, 1); }
 
 /* RESPONSYWNOŚĆ */
 @media (max-width: 768px) {
-  .slide {
-    justify-content: center;
-    padding: 0 1rem;
-  }
-
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .text-content {
-    max-width: 100%;
-  }
+  .slide { justify-content: center; padding: 0 1rem; }
+  .container { flex-direction: column; align-items: center; }
+  .text-content { max-width: 100%; }
 }
 </style>

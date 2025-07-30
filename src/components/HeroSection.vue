@@ -1,5 +1,6 @@
 <template>
   <section class="hero-section" id="hero">
+    <div class="overlay"></div>
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
@@ -35,9 +36,11 @@ const visible = ref(false);
   background: url('/images/ee.jpg') center center / cover no-repeat;
  /* background-color: #f5f1fb;*/
   padding: 4rem 1.5rem;
+  height: 90vh;
 }
 
 .hero-content {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -46,8 +49,14 @@ const visible = ref(false);
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  z-index: 2;
 }
-
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(24, 24, 24, 0.2);
+    z-index: 1;
+}
 .hero-text {
   flex: 1 1 50%;
 }
@@ -60,10 +69,14 @@ const visible = ref(false);
   color: #4b2c92;
   line-height: 1.4;
   margin-bottom: 1.5rem;
+   position: relative;
+    z-index: 5;
 }
 
 .hero-title span {
+  position: relative;
   display: block;
+  z-index: 5;
 }
 
 .hero-button {
