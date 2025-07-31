@@ -1,6 +1,5 @@
 <template>
   <section class="hero-section" id="hero">
-    <div class="overlay"></div>
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
@@ -33,38 +32,37 @@ const visible = ref(false);
 
 <style scoped>
 .hero-section {
-  background: url('/images/ee.jpg') center center / cover no-repeat;
+ /* background: url('/images/ee.jpg') center center / cover no-repeat; */
  /* background-color: #f5f1fb;*/
-  padding: 4rem 1.5rem;
+  padding: 0;
   height: 90vh;
 }
 
 .hero-content {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #f5f1fb;
 }
+
+
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(24, 24, 24, 0.2);
+    background: rgba(245, 241, 251, 0.2);
     z-index: 1;
 }
 .hero-text {
-  flex: 1 1 50%;
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-title {
   display: flex;
   flex-direction: column;
-  font-size: 2rem;
+  font-size: 2.7rem;
   font-weight: bold;
   color: #4b2c92;
   line-height: 1.4;
@@ -80,7 +78,7 @@ const visible = ref(false);
 }
 
 .hero-button {
-
+  
   background-color: #4b2c92;
   color: white;
   border: none;
@@ -96,14 +94,24 @@ const visible = ref(false);
   background-color: #362070;
 }
 
+
 .hero-image {
-  flex: 1 1 40%;
-  text-align: center;
+  position: relative; 
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+ background: rgba(245, 241, 251, 0.4);
+  z-index: 1;
 }
 
 .hero-image img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 0; /* obraz pod overlayem */
 }
 
 @keyframes slideInLeft {
@@ -130,19 +138,13 @@ const visible = ref(false);
   }
 }
 
-.hero-text {
-  padding: 1rem 3rem;
-  animation: slideInLeft 0.8s ease-out forwards;
-}
+
 
 .hero-actions {
   animation: slideInLeft 1s ease-out forwards;
 }
 
-.hero-image {
-  padding-right: 48px;
-  animation: slideInRight 0.8s ease-out forwards;
-}
+
 
 @media (max-width: 768px) {
   .hero-content {
