@@ -1,12 +1,10 @@
 <template>
   <section class="scroll-section" id="projects">
     <div class="slider-wrapper">
-      <!-- 🔹 Tor slajdów -->
       <div class="scroll-track" :style="{ transform: `translateX(-${currentSlide * 100}vw)` }">
-        <div v-for="project in projects" :key="project.id" class="slide">
+        <div v-for="project in langState.t.main.projects" :key="project.id" class="slide">
           <h2 class="heading">{{ project.title }}</h2>
           <p class="intro">{{ project.description }}</p>
-
           <div class="container">
             <div>
               <div class="image-wrapper">
@@ -14,35 +12,18 @@
               </div>
               <button class="cta-button">{{ project.cta }}</button>
             </div>
-
             <div class="text-content">
               <div class="card-grid">
                 <div class="card">
-                  <div class="card-icon-title">
-                    <MapPin class="card-icon" />
-                    <h3>{{ project.format.title }}</h3>
-                  </div>
-                  <p>{{ project.format.content }}</p>
-                </div>
-
-                <div class="card">
-                  <p class="desc">Inicjatywa edukacyjna skierowana do osób starszych pochodzenia ukraińskiego, oferująca zajęcia w
-                    formule hybrydowej lub zdalnej. Program ma na celu aktywizację społeczną i integrację
-                    międzypokoleniową, a jego realizacja zakłada współpracę z samorządem lokalnym, w tym pozyskanie
-                    odpowiedniego lokalu.
-                    Uniwersytety Trzeciego Wieku to forma nieformalnej edukacji dorosłych, pozwalająca seniorom rozwijać
-                    zainteresowania, zdobywać wiedzę i budować więzi społeczne.
+                  <p class="desc">
+                    {{ project.desc }}
                   </p>
                 </div>
-
-                
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- 🔹 Nawigacja slidera -->
       <button class="nav-btn left" @click="prevSlide">‹</button>
       <button class="nav-btn right" @click="nextSlide">›</button>
     </div>
@@ -51,46 +32,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import { MapPin, BookOpen, Target } from 'lucide-vue-next'
+import langState from '@/lang/langState'
 
 const currentSlide = ref(0)
 
-const projects = [
-  {
-    id: 'uniwersytet',
-    title: 'Ogólnopolski Uniwersytet Trzeciego Wieku dla Ukraińców',
-    description: 'Program edukacyjny w formie hybrydowej wspierający rozwój i integrację seniorów z Ukrainy.',
-    image: '/images/project1.png',
-    format: { title: 'Format', content: 'Zajęcia online i stacjonarne w Gdańsku' },
-    desc: '',
-    modules: { title: 'Moduły', list: ['Język polski', 'Obywatelstwo cyfrowe', 'Aktywizacja zawodowa'] },
-    result: { title: 'Rezultat', count: '500+ absolwentów rocznie', description: 'Rozwój sieci mentorów senioralnych' },
-    cta: 'Dołącz do nas',
-  },
-  {
-    id: 'plomyk',
-    title: 'Płomyk nadziei',
-    description: '10-dniowe wizyty edukacyjno-kulturowe dla młodzieży z Ukrainy.',
-    image: '/images/project2.png',
-    format: { title: 'Cel', content: 'Edukacyjno-kulturowe turnusy młodzieżowe' },
-    modules: { title: 'Aktywności', list: ['Spotkania z nauczycielami UG', 'Warsztaty historyczne', 'Wycieczki po Trójmieście'] },
-    result: { title: 'Skala 2025', count: '6 turnusów × 40 uczestników', description: 'Ponad 240 młodych osób w jednym roku' },
-    cta: 'Dołącz do turnusu',
-  },
-  {
-    id: 'staze',
-    title: 'Staże naukowe w Gdańsku',
-    description: 'Program badawczy z opieką mentorską dla młodych naukowców z Ukrainy.',
-    image: '/images/project3.png',
-    format: { title: 'Partner wiodący', content: 'Uniwersytet Gdański' },
-    modules: { title: 'Dyscypliny', list: ['Socjologia', 'Politologia', 'Kulturoznawstwo', 'Ekonomia'] },
-    result: { title: 'Czas trwania', count: '3–6 miesięcy', description: 'Stypendium, mentor, publikacja w czasopiśmie UG' },
-    cta: 'Aplikuj na staż',
-  },
-]
-
 function nextSlide() {
-  if (currentSlide.value < projects.length - 1) currentSlide.value++
+  if (currentSlide.value < langState.t.main.projects.length - 1) currentSlide.value++
 }
 function prevSlide() {
   if (currentSlide.value > 0) currentSlide.value--
@@ -116,7 +63,6 @@ function prevSlide() {
   transition: transform 0.6s ease-in-out;
 }
 
-/* SLIDE */
 .slide {
   flex: 0 0 100vw;
   height: 100vh;
@@ -136,7 +82,7 @@ function prevSlide() {
 
 .image-wrapper {
   flex: 1;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .photo {
@@ -149,8 +95,12 @@ function prevSlide() {
 
 .text-content {
   flex: 1;
-  width: 500px;
+  width: 400px;
   text-align: left;
+}
+
+.desc {
+  font-size: 1.1rem;
 }
 
 .heading {
@@ -174,8 +124,9 @@ function prevSlide() {
 }
 
 .card {
+  height: 468px;
   background: white;
-  padding: 1.2rem;
+  padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 3px 15px rgba(91, 44, 111, 0.1);
   transition: transform 0.3s ease;
@@ -227,7 +178,7 @@ function prevSlide() {
   background: #732d91;
 }
 
-/* 🔹 Nawigacja */
+
 .nav-btn {
   position: absolute;
   top: 50%;
@@ -256,7 +207,7 @@ function prevSlide() {
   background: rgba(91, 44, 111, 1);
 }
 
-/* RESPONSYWNOŚĆ */
+
 @media (max-width: 768px) {
   .slide {
     justify-content: center;
