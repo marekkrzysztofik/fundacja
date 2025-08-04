@@ -13,7 +13,8 @@ export default {
     'ŁĄCZYMY NAUKĘ,',
     'EDUKACJĘ I SPOŁECZNĄ',
     'SOLIDARNOŚĆ NA RZECZ',
-    'MIĘDZYNARODOWEGO DIALOGU'
+    'MIĘDZYNARODOWEGO ',
+    'DIALOGU'
   ],
   heroButton: 'KONTAKT',
 
@@ -49,7 +50,7 @@ export default {
       id: 'uniwersytet',
       title: 'Ogólnopolski Uniwersytet Trzeciego Wieku dla Ukraińców',
       description: 'Program edukacyjny w formie hybrydowej wspierający rozwój i integrację seniorów z Ukrainy.',
-      image: '/images/project1.png',
+      image: '/images/project1.jpg',
       desc: `Inicjatywa edukacyjna skierowana do osób starszych pochodzenia ukraińskiego, oferująca zajęcia w
       formule hybrydowej lub zdalnej. Program ma na celu aktywizację społeczną i integrację
                     międzypokoleniową, a jego realizacja zakłada współpracę z samorządem lokalnym, w tym pozyskanie
@@ -72,7 +73,7 @@ export default {
       id: 'staze',
       title: 'Staże naukowe w Gdańsku',
       description: 'Program badawczy z opieką mentorską dla młodych naukowców z Ukrainy.',
-      image: '/images/project3.png',
+      image: '/images/project3.jpg',
       desc: `Program płatnych staży dla młodych naukowców i studentów z Ukrainy, umożliwiający im prowadzenie badań i zdobywanie doświadczenia w instytucjach akademickich i miejskich w Gdańsku. Staże wzbogacane są o wizyty studyjne, by lepiej zrozumieć mechanizmy funkcjonowania nowoczesnych społeczności lokalnych.
       Program ma na celu wspieranie rozwoju kariery akademickiej oraz tworzenie długofalowych więzi między środowiskami naukowymi Polski i Ukrainy.`,
       cta: 'Aplikuj na staż',

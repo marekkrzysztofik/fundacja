@@ -47,7 +47,7 @@ function prevSlide() {
 <style scoped>
 .scroll-section {
   position: relative;
-  background: #f2f2f2;
+  background: white;
   overflow: hidden;
 }
 
@@ -100,7 +100,8 @@ function prevSlide() {
 }
 
 .desc {
-  font-size: 1.1rem;
+  font-size: 1.1rem; 
+  color: black;
 }
 
 .heading {
@@ -162,6 +163,7 @@ function prevSlide() {
 }
 
 .cta-button {
+  margin-top: 1rem;
   background: var(--violet);
   color: #fff;
   font-size: 1rem;
@@ -183,7 +185,7 @@ function prevSlide() {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(91, 44, 111, 0.7);
+  background: var(--violet);
   border: none;
   color: white;
   font-size: 2rem;
@@ -196,15 +198,74 @@ function prevSlide() {
 }
 
 .nav-btn.left {
-  left: 20px;
+  left: 90px;
 }
 
 .nav-btn.right {
-  right: 20px;
+  right: 90px;
 }
 
 .nav-btn:hover {
   background: rgba(91, 44, 111, 1);
+}
+
+@media (max-width: 768px) {
+  .slider-wrapper {
+    height: auto;
+    /* pozwala treści rosnąć zamiast wymuszać 100vh */
+  }
+
+  .scroll-track {
+    flex-direction: column;
+    /* każdy slide pod sobą (opcjonalne) */
+  }
+
+  .slide {
+    height: auto;
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .image-wrapper {
+    max-width: 100%;
+  }
+
+  .photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .text-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card {
+    margin-bottom: 2rem;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .intro {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
 }
 
 
@@ -223,4 +284,6 @@ function prevSlide() {
     max-width: 100%;
   }
 }
+
+
 </style>

@@ -2,7 +2,7 @@
   <header class="navbar" :class="{ hidden: isNavbarHidden }">
     <div class="navbar-container">
       <div class="navbar-logo">
-        <a @click="goHome">Fundacja</a>
+        <a @click="goHome">Fundacja ISEF</a>
       </div>
 
       <button class="hamburger" @click="isMenuOpen = !isMenuOpen">
@@ -25,7 +25,7 @@
     <ContactForm />
   </Dialog>
 </template>
-
+ 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import langState from '@/lang/langState'
@@ -49,8 +49,8 @@ const navLinks = computed(() => [
   { href: '#priorities', label: langState.t.main.navbar.priorities },
   { href: '#projects', label: langState.t.main.navbar.projects },
   { href: '#team', label: langState.t.main.navbar.about },
-  { href: '#partners', label: langState.t.main.navbar.partners },
-  { href: '#news', label: langState.t.main.navbar.news },
+  // { href: '#partners', label: langState.t.main.navbar.partners },
+  // { href: '#news', label: langState.t.main.navbar.news }, 
 ])
 
 const handleNavClick = (href) => {

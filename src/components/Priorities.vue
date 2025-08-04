@@ -9,7 +9,7 @@
       <div class="priority-grid">
         <div class="priority-row">
           <div class="priority-cell"> </div>
-          <div class="priority-cell title">Co?  </div>
+          <div class="priority-cell title">Co? </div>
           <div class="priority-cell title"> Kto? </div>
           <div class="priority-cell title"> Dlaczego? </div>
         </div>
@@ -70,12 +70,14 @@ import langState from '@/lang/langState'
   padding: 1.5rem;
   text-align: left;
 }
+
 .priority-row:first-child {
   padding: 0;
   background-color: transparent;
   box-shadow: none;
   text-align: center;
 }
+
 .priority-cell {
   font-size: 0.95rem;
   color: #333;
@@ -86,9 +88,59 @@ import langState from '@/lang/langState'
   font-weight: 600;
   color: #4b2c92;
 }
+
 .priority-cell.title {
   font-size: 1.6rem;
   font-weight: 600;
   color: #4b2c92;
+}
+
+/* 🔹 MOBILE LAYOUT */
+@media (max-width: 768px) {
+  .priority-row {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .priority-row:first-child {
+    display: none;
+    /* ukryj nagłówkowy wiersz "Co? Kto? Dlaczego?" */
+  }
+
+  .priority-cell.title {
+    display: none;
+    /* tytuły z nagłówka tabeli ukrywamy */
+  }
+
+  .priority-cell.heading {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #4b2c92;
+  }
+
+  /* Dodaj labelki dla pozostałych pól */
+  .priority-cell:nth-child(2)::before {
+    content: "Co? ";
+    display: block;
+    font-weight: bold;
+    color: #4b2c92;
+    margin-bottom: 0.2rem;
+  }
+
+  .priority-cell:nth-child(3)::before {
+    content: "Kto? ";
+    display: block;
+    font-weight: bold;
+    color: #4b2c92;
+    margin-bottom: 0.2rem;
+  }
+
+  .priority-cell:nth-child(4)::before {
+    content: "Dlaczego? ";
+    display: block;
+    font-weight: bold;
+    color: #4b2c92;
+    margin-bottom: 0.2rem;
+  }
 }
 </style>

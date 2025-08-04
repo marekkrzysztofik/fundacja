@@ -31,12 +31,12 @@ const visible = ref(false);
 
 <style scoped>
 .hero-section {
-  background: url('/images/ee.jpg') no-repeat;
+  background: url('/images/ee2.jpg') no-repeat;
   background-size: cover;
-  background-position: top 0px center; 
+  background-position: top -110px center; 
  /* background-color: #f5f1fb;*/
   padding: 4rem 1.5rem;
-  height: 90vh;
+  height: 89vh;
 }
 
 .hero-content {
@@ -50,9 +50,6 @@ const visible = ref(false);
     inset: 0;
     background: rgba(245, 241, 251, 0.7);
     z-index: 1;
-}
-.hero-text {
-  
 }
 
 .hero-title {
@@ -155,5 +152,12 @@ const visible = ref(false);
   .hero-title {
     font-size: 1.5rem;
   }
+}
+
+@media (min-width: 1628px) {
+.hero-content {
+    margin-top: 7rem;
+  }
+
 }
 </style>

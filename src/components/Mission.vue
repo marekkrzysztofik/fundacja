@@ -155,4 +155,11 @@ onMounted(() => {
   margin: 0 0.5rem;
   color: #aaa;
 }
+@media (max-width: 768px) {
+  .goals-grid {
+  display: flex;
+  flex-direction: column;
+}
+}
 </style>
+

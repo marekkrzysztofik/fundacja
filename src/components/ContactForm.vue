@@ -53,13 +53,7 @@
             {{ langState.t.main.contact.rodo1 }}
           </label>
         </div>
-        <div class="form-row checkbox">
-          <label>
-            <input type="checkbox" v-model="form.rodo2" required />
-            {{ langState.t.main.contact.rodo2 }}
-          </label>
-        </div>
-
+      
         <button type="submit" class="submit-button">
           {{ langState.t.main.contact.submit }}
         </button>
