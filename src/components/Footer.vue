@@ -3,28 +3,28 @@
     <div class="footer-container">
       
       <div class="footer-logo">
-        <h2>Fundacja ISEF</h2>
-        <p>Tworzymy mosty między kulturami i pokoleniami.</p>
+        <h2>{{ langState.t.main.footer.logoTitle }}</h2>
+        <p>{{ langState.t.main.footer.logoText }}</p>
       </div>
 
       <div class="footer-info">
-        <h3>Dane kontaktowe</h3>
-        <p><strong>Adres:</strong> ul. Jana Heweliusza 11/811, 80-890 Gdańsk</p>
-        <p><strong>KRS:</strong> 0001162327</p>
-        <p><strong>NIP:</strong> 5835533208</p>
-        <p><strong>REGON:</strong> 54121717200000</p>
+        <h3>{{ langState.t.main.footer.contactTitle }}</h3>
+        <p><strong>{{ langState.t.main.footer.addressLabel }}:</strong> {{ langState.t.main.footer.address }}</p>
+        <p><strong>KRS:</strong> {{ langState.t.main.footer.krs }}</p>
+        <p><strong>NIP:</strong> {{ langState.t.main.footer.nip }}</p>
+        <p><strong>REGON:</strong> {{ langState.t.main.footer.regon }}</p>
       </div>
 
       <nav class="footer-nav">
-        <h3>Nawigacja</h3>
-        <a href="#mission">Misja</a>
-        <a href="#projects">Projekty</a>
-        <a href="#team">Zespół</a>
-        <a href="#contact">Kontakt</a>
+        <h3>{{ langState.t.main.footer.navTitle }}</h3>
+        <a href="#mission">{{ langState.t.main.navbar.mission }}</a>
+        <a href="#projects">{{ langState.t.main.navbar.projects }}</a>
+        <a href="#team">{{ langState.t.main.navbar.about }}</a>
+        <a href="#contact">{{ langState.t.main.navbar.contact }}</a>
       </nav>
 
       <div class="footer-socials">
-        <h3>Znajdziesz nas</h3>
+        <h3>{{ langState.t.main.footer.socialTitle }}</h3>
         <div class="social-links">
           <a href="https://facebook.com" target="_blank" aria-label="Facebook"><Facebook class="icon" /></a>
           <a href="https://instagram.com" target="_blank" aria-label="Instagram"><Instagram class="icon" /></a>
@@ -34,13 +34,14 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {{ new Date().getFullYear() }} Fundacja. Wszelkie prawa zastrzeżone.</p>
+      <p>&copy; {{ new Date().getFullYear() }} {{ langState.t.main.footer.copy }}</p>
     </div>
   </footer>
 </template>
 
 <script setup>
 import { Facebook, Instagram, Mail } from 'lucide-vue-next'
+import langState from '@/lang/langState'
 </script>
 
 <style scoped>

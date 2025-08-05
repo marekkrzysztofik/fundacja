@@ -41,13 +41,13 @@ const newsList = ref([
   {
     title: 'Fundacja rozpoczyna nowy projekt "Most Pokoleń"',
     text: 'Projekt "Most Pokoleń" ma na celu połączenie seniorów z młodzieżą poprzez cykl spotkań, wspólne działania artystyczne i warsztaty. Inauguracja odbyła się 10 sierpnia 2025 r. w Gdańsku. Uczestnicy mogli spróbować swoich sił w malarstwie, fotografii i tradycyjnym rękodziele. To dopiero początek serii wydarzeń, które będą odbywać się co miesiąc.',
-     image: '/images/project1.jpg',
+    image: '/images/project1.jpg',
     date: '10.08.2025'
   },
   {
     title: 'Koncert charytatywny na rzecz młodych talentów',
     text: '20 sierpnia 2025 r. zorganizowaliśmy koncert charytatywny w centrum Gdańska, podczas którego wystąpili młodzi artyści z regionu. Dochód z wydarzenia przeznaczony został na stypendia dla utalentowanej młodzieży z trudnych środowisk. Dzięki wsparciu mieszkańców udało się zebrać ponad 50 000 zł!',
-     image: '/images/project1.jpg',
+    image: '/images/project1.jpg',
     date: '20.08.2025'
   }
 ])
@@ -88,7 +88,7 @@ const nextNews = () => {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #1c1c3c;
+  color: #4b2c92;
   text-align: center;
 }
 
@@ -113,6 +113,7 @@ const nextNews = () => {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, background 0.3s ease;
 }
+
 .nav-btn:hover {
   background: #5a33a1;
   transform: scale(1.1);
@@ -132,6 +133,7 @@ const nextNews = () => {
   background: white;
   max-width: 100%;
 }
+
 .news-image {
   width: 100%;
   max-width: 550px;
@@ -161,16 +163,32 @@ const nextNews = () => {
 .slide-fade-enter-active {
   animation: slideIn 0.5s ease forwards;
 }
+
 .slide-fade-leave-active {
   animation: slideOut 0.4s ease forwards;
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
 @keyframes slideOut {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(-40px); }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
 }
 </style>

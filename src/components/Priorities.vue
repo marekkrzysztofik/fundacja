@@ -9,9 +9,9 @@
       <div class="priority-grid">
         <div class="priority-row">
           <div class="priority-cell"> </div>
-          <div class="priority-cell title">Co? </div>
-          <div class="priority-cell title"> Kto? </div>
-          <div class="priority-cell title"> Dlaczego? </div>
+          <div class="priority-cell title">{{langState.t.main.priorities.what}} </div>
+          <div class="priority-cell title"> {{langState.t.main.priorities.who}} </div>
+          <div class="priority-cell title"> {{langState.t.main.priorities.why}} </div>
         </div>
         <div class="priority-row" v-for="(priority, index) in langState.t.main.priorities.items" :key="index">
           <div class="priority-cell heading">{{ priority.area }}</div>

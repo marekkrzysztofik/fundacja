@@ -3,19 +3,16 @@
     <div class="team-container">
       <h2 class="team-heading">{{ langState.t.main.team.title }}</h2>
       <p class="team-subtitle">{{ langState.t.main.team.subtitle }}</p>
-      <p>
-        Fundacja ISEF została powołana, by działać tam, gdzie nauka spotyka się z edukacją i realnymi wyzwaniami społecznymi. Będziemy koncentrować się na tym, co jest dziś niezwykle istotne: wspieraniu edukacji, rozwijaniu współpracy międzynarodowej i budowaniu dialogu międzykulturowego.
-Nasze działania skupiają się na tworzeniu przestrzeni do wymiany wiedzy i doświadczeń – między uczelniami, samorządami, organizacjami pozarządowymi i społecznościami z różnych krajów. W centrum naszych zainteresowań znajdują się Europa Środkowo-Wschodnia.
-Tworzymy interdyscyplinarny zespół ludzi nauki, edukacji i praktyki społecznej. 
+      <p class="about">
+        Fundacja ISEF została powołana, by działać tam, gdzie nauka spotyka się z edukacją i realnymi wyzwaniami
+        społecznymi. Będziemy koncentrować się na tym, co jest dziś niezwykle istotne: wspieraniu edukacji, rozwijaniu
+        współpracy międzynarodowej i budowaniu dialogu międzykulturowego.
+        Nasze działania skupiają się na tworzeniu przestrzeni do wymiany wiedzy i doświadczeń – między uczelniami,
+        samorządami, organizacjami pozarządowymi i społecznościami z różnych krajów. W centrum naszych zainteresowań
+        znajdują się Europa Środkowo-Wschodnia.
+        Tworzymy interdyscyplinarny zespół ludzi nauki, edukacji i praktyki społecznej.
 
       </p>
-      <div class="team-grid">
-        <div v-for="(member, index) in langState.t.main.team.members" :key="index" class="team-member">
-          <img :src="member.photo" :alt="member.name" class="member-photo" />
-          <h3 class="member-name">{{ member.name }}</h3>
-          <p class="member-role">{{ member.role }}</p>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -34,6 +31,10 @@ import langState from '@/lang/langState'
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+}
+
+.about {
+  color: black;
 }
 
 .team-heading {

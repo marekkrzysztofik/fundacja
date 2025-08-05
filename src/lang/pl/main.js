@@ -22,6 +22,9 @@ export default {
   priorities: {
     title: 'Priorytety na rok 2025',
     intro: 'Tegoroczne działania koncentrują się na wsparciu obywateli Ukrainy dotkniętych wojną.',
+    what: 'Co?',
+    who: 'Kto?',
+    why: 'Dlaczego?',
     items: [
       {
         area: 'Edukacja integracyjna',
@@ -193,4 +196,18 @@ export default {
     submit: 'Wyślij',
     confirmation: 'Dziękujemy za przesłanie formularza!'
   },
+
+  footer: {
+    logoTitle: 'Fundacja ISEF',
+    logoText: 'Tworzymy mosty między kulturami i pokoleniami.',
+    contactTitle: 'Dane kontaktowe',
+    addressLabel: 'Adres',
+    address: 'ul. Jana Heweliusza 11/811, 80-890 Gdańsk',
+    krs: '0001162327',
+    nip: '5835533208',
+    regon: '54121717200000',
+    navTitle: 'Nawigacja',
+    socialTitle: 'Znajdziesz nas',
+    copy: 'Fundacja. Wszelkie prawa zastrzeżone.'
+  }
 }
