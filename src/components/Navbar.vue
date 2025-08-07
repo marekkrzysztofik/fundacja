@@ -68,6 +68,7 @@ const navLinks = computed(() => [
 // 🔹 Obsługa języka
 const languages = [
   { code: 'pl', label: 'Polski', flag: '🇵🇱' },
+  { code: 'en', label: 'English', flag: '🇬🇧' },
   { code: 'ua', label: 'Українська', flag: '🇺🇦' },
   { code: 'ru', label: 'Русский', flag: '🇷🇺' }
 ]

@@ -6,7 +6,7 @@
           <h2 class="heading">{{ project.title }}</h2>
           <p class="intro">{{ project.description }}</p>
           <div class="container">
-            <div>
+            <div class="image-container">
               <div class="image-wrapper">
                 <img :src="project.image" :alt="project.title" class="photo" />
               </div>
@@ -64,6 +64,7 @@ function prevSlide() {
 }
 
 .slide {
+  margin: 0 auto;
   flex: 0 0 100vw;
   height: 100vh;
   background-size: cover;
@@ -100,7 +101,7 @@ function prevSlide() {
 }
 
 .desc {
-  font-size: 1.1rem; 
+  font-size: 1.1rem;
   color: black;
 }
 
@@ -226,6 +227,13 @@ function prevSlide() {
     flex-direction: column;
   }
 
+  .image-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .container {
     flex-direction: column;
     gap: 1rem;
@@ -271,6 +279,7 @@ function prevSlide() {
 
 @media (max-width: 768px) {
   .slide {
+    width: 85%;
     justify-content: center;
     padding: 0 1rem;
   }
@@ -284,6 +293,4 @@ function prevSlide() {
     max-width: 100%;
   }
 }
-
-
 </style>

@@ -167,6 +167,51 @@ const nextNews = () => {
 .slide-fade-leave-active {
   animation: slideOut 0.4s ease forwards;
 }
+@media (max-width: 768px) {
+  .news-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .news-title {
+    font-size: 1.6rem;
+  }
+
+  .slider-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    padding: 0.6rem;
+  }
+
+  .arrow {
+    width: 26px;
+    height: 26px;
+  }
+
+  .news-image-wrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 3px;
+  }
+
+  .news-image {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+
+  .news-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+    padding: 0 0.2rem;
+  }
+
+  .news-date {
+    font-size: 0.95rem;
+  }
+}
 
 @keyframes slideIn {
   from {
