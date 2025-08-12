@@ -152,26 +152,27 @@ export default {
     ]
   },
 
-
-  team: {
-    title: 'O nas',
-    subtitle: 'Poznaj osoby zaangażowane w działania Fundacji.',
+  board: {
+    title: 'Członkowie zarządu',
     members: [
       {
-        name: 'Anna Kowalska',
-        role: 'Prezeska Fundacji',
-        photo: '/images/team/anna.jpg'
+        id: 'patryk-blawat',
+        name: 'Patryk Bławat',
+        photo: '/images/patryk.png',
+        bio: 'Założyciel stowarzyszenia „Wiatr od Morza”, które od 2021 roku realizuje projekty w ramach budżetu obywatelskiego, organizuje wydarzenia kulturalne i popularyzuje wiedzę o Gdyni. Od 2024 roku radny Dzielnicy Gdynia Cisowa oraz członek Gdyńskiego Komitetu Rewitalizacji. Student gospodarki przestrzennej — łączy działalność społeczną z planowaniem przestrzennym i rozwojem lokalnym.'
       },
       {
-        name: 'Jan Nowak',
-        role: 'Koordynator projektów',
-        photo: '/images/team/jan.jpg'
+        id: 'patryk-blawat',
+        name: 'Patryk Bławat',
+        photo: '/images/patryk.png',
+        bio: 'Założyciel stowarzyszenia „Wiatr od Morza”, które od 2021 roku realizuje projekty w ramach budżetu obywatelskiego, organizuje wydarzenia kulturalne i popularyzuje wiedzę o Gdyni. Od 2024 roku radny Dzielnicy Gdynia Cisowa oraz członek Gdyńskiego Komitetu Rewitalizacji. Student gospodarki przestrzennej — łączy działalność społeczną z planowaniem przestrzennym i rozwojem lokalnym.'
       },
       {
-        name: 'Olena Petrenko',
-        role: 'Specjalistka ds. integracji',
-        photo: '/images/team/olena.jpg'
-      }
+        id: 'patryk-blawat',
+        name: 'Patryk Bławat',
+        photo: '/images/patryk.png',
+        bio: 'Założyciel stowarzyszenia „Wiatr od Morza”, które od 2021 roku realizuje projekty w ramach budżetu obywatelskiego, organizuje wydarzenia kulturalne i popularyzuje wiedzę o Gdyni. Od 2024 roku radny Dzielnicy Gdynia Cisowa oraz członek Gdyńskiego Komitetu Rewitalizacji. Student gospodarki przestrzennej — łączy działalność społeczną z planowaniem przestrzennym i rozwojem lokalnym.'
+      },
     ]
   },
 
@@ -199,7 +200,7 @@ export default {
 
   footer: {
     logoTitle: 'Fundacja ISEF',
-    logoText: 'Tworzymy mosty między kulturami i pokoleniami.',
+    logoText: 'INTERNATIONAL SCIENTIFIC AND EDUCATIONAL FORUM',
     contactTitle: 'Dane kontaktowe',
     addressLabel: 'Adres',
     address: 'ul. Jana Heweliusza 11/811, 80-890 Gdańsk',
@@ -209,5 +210,26 @@ export default {
     navTitle: 'Nawigacja',
     socialTitle: 'Znajdziesz nas',
     copy: 'Fundacja. Wszelkie prawa zastrzeżone.'
-  }
+  },
+
+  news: [
+    {
+      title: 'Warsztaty kulturowe dla młodzieży z Ukrainy',
+      text: '2 sierpnia 2025 roku odbyły się wyjątkowe warsztaty integracyjne, w których wzięło udział ponad 40 młodych uczestników z Polski i Ukrainy. W programie znalazły się spotkania z lokalnymi artystami, nauka języka polskiego oraz zajęcia kreatywne. Dzięki wsparciu partnerów udało się stworzyć przestrzeń do dialogu międzykulturowego i budowania nowych przyjaźni.',
+      image: '/images/project1.jpg',
+      date: '02.08.2025'
+    },
+    {
+      title: 'Fundacja rozpoczyna nowy projekt "Most Pokoleń"',
+      text: 'Projekt "Most Pokoleń" ma na celu połączenie seniorów z młodzieżą poprzez cykl spotkań, wspólne działania artystyczne i warsztaty. Inauguracja odbyła się 10 sierpnia 2025 r. w Gdańsku. Uczestnicy mogli spróbować swoich sił w malarstwie, fotografii i tradycyjnym rękodziele. To dopiero początek serii wydarzeń, które będą odbywać się co miesiąc.',
+      image: '/images/project1.jpg',
+      date: '10.08.2025'
+    },
+    {
+      title: 'Koncert charytatywny na rzecz młodych talentów',
+      text: '20 sierpnia 2025 r. zorganizowaliśmy koncert charytatywny w centrum Gdańska, podczas którego wystąpili młodzi artyści z regionu. Dochód z wydarzenia przeznaczony został na stypendia dla utalentowanej młodzieży z trudnych środowisk. Dzięki wsparciu mieszkańców udało się zebrać ponad 50 000 zł!',
+      image: '/images/project1.jpg',
+      date: '20.08.2025'
+    }
+  ]
 }

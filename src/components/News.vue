@@ -30,27 +30,9 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import langState from '@/lang/langState'
 
-const newsList = ref([
-  {
-    title: 'Warsztaty kulturowe dla młodzieży z Ukrainy',
-    text: '2 sierpnia 2025 roku odbyły się wyjątkowe warsztaty integracyjne, w których wzięło udział ponad 40 młodych uczestników z Polski i Ukrainy. W programie znalazły się spotkania z lokalnymi artystami, nauka języka polskiego oraz zajęcia kreatywne. Dzięki wsparciu partnerów udało się stworzyć przestrzeń do dialogu międzykulturowego i budowania nowych przyjaźni.',
-    image: '/images/project1.jpg',
-    date: '02.08.2025'
-  },
-  {
-    title: 'Fundacja rozpoczyna nowy projekt "Most Pokoleń"',
-    text: 'Projekt "Most Pokoleń" ma na celu połączenie seniorów z młodzieżą poprzez cykl spotkań, wspólne działania artystyczne i warsztaty. Inauguracja odbyła się 10 sierpnia 2025 r. w Gdańsku. Uczestnicy mogli spróbować swoich sił w malarstwie, fotografii i tradycyjnym rękodziele. To dopiero początek serii wydarzeń, które będą odbywać się co miesiąc.',
-    image: '/images/project1.jpg',
-    date: '10.08.2025'
-  },
-  {
-    title: 'Koncert charytatywny na rzecz młodych talentów',
-    text: '20 sierpnia 2025 r. zorganizowaliśmy koncert charytatywny w centrum Gdańska, podczas którego wystąpili młodzi artyści z regionu. Dochód z wydarzenia przeznaczony został na stypendia dla utalentowanej młodzieży z trudnych środowisk. Dzięki wsparciu mieszkańców udało się zebrać ponad 50 000 zł!',
-    image: '/images/project1.jpg',
-    date: '20.08.2025'
-  }
-])
+const newsList = computed(() => langState.t.main.news)
 
 const currentIndex = ref(0)
 const currentNews = computed(() => newsList.value[currentIndex.value])

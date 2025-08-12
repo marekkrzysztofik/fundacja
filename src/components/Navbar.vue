@@ -2,7 +2,7 @@
   <header class="navbar" :class="{ hidden: isNavbarHidden }">
     <div class="navbar-container">
       <div class="navbar-logo">
-        <a @click="goHome">Fundacja ISEF</a>
+        <a @click="goHome">{{ langState.t.main.footer.logoTitle }}</a>
       </div>
 
       <!-- 🌐 Dropdown wyboru języka -->

@@ -151,27 +151,30 @@ export default {
     ]
   },
 
-  team: {
-    title: 'About Us',
-    subtitle: 'Meet the people behind the Foundation’s initiatives.',
+  board: {
+    title: 'Board Members',
     members: [
       {
-        name: 'Anna Kowalska',
-        role: 'President of the Foundation',
-        photo: '/images/team/anna.jpg'
+        id: 'patryk-blawat',
+        name: 'Patryk Bławat',
+        photo: '/images/patryk.png',
+        bio: 'Founder of the “Wiatr od Morza” association, which since 2021 has been implementing projects under the civic budget, organizing cultural events, and promoting knowledge about Gdynia. Since 2024, a councilor of the Gdynia Cisowa District and a member of the Gdynia Revitalization Committee. As a spatial economy student, he combines social activity with an interest in urban planning and local development.'
       },
       {
-        name: 'Jan Nowak',
-        role: 'Project Coordinator',
-        photo: '/images/team/jan.jpg'
+        id: 'patryk-blawat',
+        name: 'Patryk Bławat',
+        photo: '/images/patryk.png',
+        bio: 'Founder of the “Wiatr od Morza” association, which since 2021 has been implementing projects under the civic budget, organizing cultural events, and promoting knowledge about Gdynia. Since 2024, a councilor of the Gdynia Cisowa District and a member of the Gdynia Revitalization Committee. As a spatial economy student, he combines social activity with an interest in urban planning and local development.'
       },
       {
-        name: 'Olena Petrenko',
-        role: 'Integration Specialist',
-        photo: '/images/team/olena.jpg'
+        id: 'patryk-blawat',
+        name: 'Patryk Bławat',
+        photo: '/images/patryk.png',
+        bio: 'Founder of the “Wiatr od Morza” association, which since 2021 has been implementing projects under the civic budget, organizing cultural events, and promoting knowledge about Gdynia. Since 2024, a councilor of the Gdynia Cisowa District and a member of the Gdynia Revitalization Committee. As a spatial economy student, he combines social activity with an interest in urban planning and local development.'
       }
     ]
   },
+
 
   contact: {
     title: 'Contact Form',
@@ -197,7 +200,7 @@ export default {
 
   footer: {
     logoTitle: 'ISEF Foundation',
-    logoText: 'We build bridges between cultures and generations.',
+    logoText: 'INTERNATIONAL SCIENTIFIC AND EDUCATIONAL FORUM',
     contactTitle: 'Contact Information',
     addressLabel: 'Address',
     address: 'Jana Heweliusza St. 11/811, 80-890 Gdańsk, Poland',
@@ -207,5 +210,26 @@ export default {
     navTitle: 'Navigation',
     socialTitle: 'Find us',
     copy: 'Foundation. All rights reserved.'
-  }
+  },
+
+  news: [
+    {
+      title: 'Cultural Workshops for Youth from Ukraine',
+      text: 'On August 2, 2025, unique integration workshops were held, attended by over 40 young participants from Poland and Ukraine. The program included meetings with local artists, Polish language lessons, and creative activities. Thanks to the support of our partners, we created a space for intercultural dialogue and building new friendships.',
+      image: '/images/project1.jpg',
+      date: '02.08.2025'
+    },
+    {
+      title: 'The Foundation Launches a New Project "Bridge of Generations"',
+      text: 'The "Bridge of Generations" project aims to connect seniors with young people through a series of meetings, joint artistic activities, and workshops. The inauguration took place on August 10, 2025, in Gdańsk. Participants had the opportunity to try painting, photography, and traditional handicrafts. This is just the beginning of a series of monthly events.',
+      image: '/images/project1.jpg',
+      date: '10.08.2025'
+    },
+    {
+      title: 'Charity Concert for Young Talents',
+      text: 'On August 20, 2025, we organized a charity concert in the center of Gdańsk, featuring young artists from the region. The proceeds from the event were allocated to scholarships for talented youth from disadvantaged backgrounds. Thanks to the support of residents, we managed to raise over 50,000 PLN!',
+      image: '/images/project1.jpg',
+      date: '20.08.2025'
+    }
+  ]
 }
