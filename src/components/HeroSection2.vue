@@ -8,7 +8,7 @@
             {{ line }}
           </span>
         </h1>
-        <div>
+        <div class="buttons">
           <a class="hero-button hero-button--secondary" href="/files/Statut fundacji_ISEF.pdf" download>
             {{ langState.t.main.heroDownload }}
           </a>
@@ -42,11 +42,7 @@ const visible = ref(false);
   height: 89vh;
 }
 
-.buttons {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-}
+
 
 .hero-content {
   position: relative;
@@ -161,12 +157,15 @@ const visible = ref(false);
   .hero-title {
     font-size: 1.5rem;
   }
+  .buttons {
+  display: flex;
+  flex-direction: column;
+}
 }
 
 @media (min-width: 1628px) {
   .hero-content {
     margin-top: 7rem;
   }
-
 }
 </style>

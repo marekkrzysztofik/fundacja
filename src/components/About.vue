@@ -69,10 +69,10 @@ const members = computed(() =>
 
 .member-photo {
   width: 150px;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
   object-position: center top;
-  border-radius: 50%;
+  border-radius: 35px;
   margin-bottom: 1.2rem;
   border: 3px solid #4b2c92;
 }
