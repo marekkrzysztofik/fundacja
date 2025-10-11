@@ -36,9 +36,9 @@
           <label>{{ langState.t.main.contact.project }}</label>
           <select v-model="form.project" required>
             <option disabled value="">{{ langState.t.main.contact.projectPlaceholder }}</option>
-            <option value="uni">{{ langState.t.main.contact.projectUni }}</option>
-            <option value="plomyk">{{ langState.t.main.contact.projectPlomyk }}</option>
-            <option value="internship">{{ langState.t.main.contact.projectIntern }}</option>
+            <option v-for="project in langState.t.main.projects">
+              {{ project.title }}
+            </option>
           </select>
         </div>
 
@@ -53,7 +53,7 @@
             {{ langState.t.main.contact.rodo1 }}
           </label>
         </div>
-      
+
         <button type="submit" class="submit-button">
           {{ langState.t.main.contact.submit }}
         </button>

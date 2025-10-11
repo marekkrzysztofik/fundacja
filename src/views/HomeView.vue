@@ -13,9 +13,6 @@ import News from '@/components/News.vue';
 <template>
     <HeroSection2 />
     <Mission />
-    <News />
-    <Priorities />
     <Projects />
-
     <About />
 </template>

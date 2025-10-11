@@ -17,6 +17,7 @@ export default {
     'DIALOGU'
   ],
   heroButton: 'KONTAKT',
+  heroDownload: 'POBIERZ NASZ STATUT (PDF)',
 
 
   priorities: {
@@ -51,36 +52,32 @@ export default {
   projects: [
     {
       id: 'uniwersytet',
-      title: 'Ogólnopolski Uniwersytet Trzeciego Wieku dla Ukraińców',
-      description: 'Program edukacyjny w formie hybrydowej wspierający rozwój i integrację seniorów z Ukrainy.',
+      title: 'Cykl Webinarów Naukowych dla Młodych Badaczy',
+      description: 'Program edukacyjny w formie online wspierający rozwój kompetencji naukowych i publikacyjnych młodych badaczy.',
       image: '/images/project1.jpg',
-      desc: `Inicjatywa edukacyjna skierowana do osób starszych pochodzenia ukraińskiego, oferująca zajęcia w
-      formule hybrydowej lub zdalnej. Program ma na celu aktywizację społeczną i integrację
-                    międzypokoleniową, a jego realizacja zakłada współpracę z samorządem lokalnym, w tym pozyskanie
-                    odpowiedniego lokalu.
-                    Uniwersytety Trzeciego Wieku to forma nieformalnej edukacji dorosłych, pozwalająca seniorom rozwijać
-                    zainteresowania, zdobywać wiedzę i budować więzi społeczne.`,
+      desc: `Inicjatywa edukacyjna skierowana do młodych naukowców i doktorantów, oferująca zajęcia w formule zdalnej po polsku, angielsku, rosyjsku. Program ma na celu rozwój kompetencji badawczych i prowadzone będą przez doświadczonych pracowników naukowych Uniwersytetu Gdańskiego. Cykl webinarów to forma praktycznej edukacji akademickiej, umożliwiająca uczestnikom zdobycie wiedzy o specyfice publikowania w czasopismach indeksowanych w bazach Scopus i Web of Science, rozwijanie warsztatu naukowego oraz budowanie sieci współpracy międzynarodowej.`,
 
-      cta: 'Dołącz do nas',
+      cta: 'Dostępne wkrótce',
     },
-    {
-      id: 'plomyk',
-      title: 'Płomyk nadziei',
-      description: '10-dniowe wizyty edukacyjno-kulturowe dla młodzieży z Ukrainy.',
-      image: '/images/project2.png',
-      desc: `Edukacyjno-integracyjne wizyty w Gdańsku dla dzieci i młodzieży z Ukrainy, których rodziny zostały dotknięte wojną. Tygodniowe wyjazdy mają na celu nie tylko poznanie historii i kultury miasta, ale także budowanie poczucia bezpieczeństwa, przynależności i możliwości przyszłego życia w Polsce.
-      Program daje młodym uczestnikom szansę na chwilę oddechu od wojennej rzeczywistości oraz poznanie rówieśników z Polski.`,
-      cta: 'Dołącz do turnusu',
-    },
+    
     {
       id: 'staze',
       title: 'Staże naukowe w Gdańsku',
-      description: 'Program badawczy z opieką mentorską dla młodych naukowców z Ukrainy.',
+      description: 'Program badawczy z opieką mentorską dla młodych naukowców z krajów Partnerstwa Wschodniego.',
       image: '/images/project3.jpg',
-      desc: `Program płatnych staży dla młodych naukowców i studentów z Ukrainy, umożliwiający im prowadzenie badań i zdobywanie doświadczenia w instytucjach akademickich i miejskich w Gdańsku. Staże wzbogacane są o wizyty studyjne, by lepiej zrozumieć mechanizmy funkcjonowania nowoczesnych społeczności lokalnych.
+      desc: `Program płatnych staży dla młodych naukowców i studentów z krajów Partnerstwa Wschodniego, umożliwiający im prowadzenie badań i zdobywanie doświadczenia w instytucjach akademickich i miejskich w Gdańsku. Staże wzbogacane są o wizyty studyjne, by lepiej zrozumieć mechanizmy funkcjonowania nowoczesnych społeczności lokalnych.
       Program ma na celu wspieranie rozwoju kariery akademickiej oraz tworzenie długofalowych więzi między środowiskami naukowymi Polski i Ukrainy.`,
-      cta: 'Aplikuj na staż',
+      cta: 'Dostępne wkrótce',
     },
+    // {
+    //   id: 'plomyk',
+    //   title: 'Płomyk nadziei',
+    //   description: '10-dniowe wizyty edukacyjno-kulturowe dla młodzieży z Ukrainy.',
+    //   image: '/images/project2.png',
+    //   desc: `Edukacyjno-integracyjne wizyty w Gdańsku dla dzieci i młodzieży z Ukrainy, których rodziny zostały dotknięte wojną. Tygodniowe wyjazdy mają na celu nie tylko poznanie historii i kultury miasta, ale także budowanie poczucia bezpieczeństwa, przynależności i możliwości przyszłego życia w Polsce.
+    //   Program daje młodym uczestnikom szansę na chwilę oddechu od wojennej rzeczywistości oraz poznanie rówieśników z Polski.`,
+    //   cta: 'Dołącz do turnusu',
+    // },
   ],
 
   partners: {
@@ -156,22 +153,28 @@ export default {
     title: 'Członkowie zarządu',
     members: [
       {
-        id: 'patryk-blawat',
-        name: 'Patryk Bławat',
-        photo: '/images/patryk.png',
-        bio: 'Założyciel stowarzyszenia „Wiatr od Morza”, które od 2021 roku realizuje projekty w ramach budżetu obywatelskiego, organizuje wydarzenia kulturalne i popularyzuje wiedzę o Gdyni. Od 2024 roku radny Dzielnicy Gdynia Cisowa oraz członek Gdyńskiego Komitetu Rewitalizacji. Student gospodarki przestrzennej — łączy działalność społeczną z planowaniem przestrzennym i rozwojem lokalnym.'
+        id: 'AK',
+        name: 'dr hab. Aleksander Kuczabski',
+        photo: '/images/1.png',
+        bio: 'Przewodniczący Rady Fundacji - urodzony we Lwowie, związany z Uniwersytetem Gdańskim, gdzie pracuje jako profesor w Zakładzie Rozwoju Regionalnego. Doktor habilitowany nauk o Ziemi w dyscyplinie geografia (nostryfikacja dyplomu doktora nauk z zarządzania państwowego, Ukraina), absolwent Lwowskiego Uniwersytetu Państwowego im. I. Franki oraz Krajowej Szkoły Administracji Publicznej w Warszawie. Wcześniej pełnił funkcje kierownicze w administracji publicznej i szkolnictwie wyższym na Ukrainie, a także był stypendystą programu im. Lane’a Kirklanda Polsko-Amerykańskiej Komisji Fulbrighta. Naukowo zajmuje się problematyką zarządzania publicznego, reformami terytorialnymi i rozwojem regionalnym w Polsce i na Ukrainie. W działaniach Fundacji łączy doświadczenie naukowe i administracyjne, wspierając wymianę wiedzy i dobrych praktyk między oboma krajami.'
       },
       {
-        id: 'patryk-blawat',
-        name: 'Patryk Bławat',
-        photo: '/images/patryk.png',
-        bio: 'Założyciel stowarzyszenia „Wiatr od Morza”, które od 2021 roku realizuje projekty w ramach budżetu obywatelskiego, organizuje wydarzenia kulturalne i popularyzuje wiedzę o Gdyni. Od 2024 roku radny Dzielnicy Gdynia Cisowa oraz członek Gdyńskiego Komitetu Rewitalizacji. Student gospodarki przestrzennej — łączy działalność społeczną z planowaniem przestrzennym i rozwojem lokalnym.'
+        id: 'OZ',
+        name: 'dr Olha Zadorozhna',
+        photo: '/images/2.png',
+        bio: 'Prezes Zarządu Fundacji - urodzona w Charkowie na Ukrainie, obecnie związana z Gdańskiem. Absolwentka i wykładowczyni Narodowego Uniwersytetu im. W. N. Karazina w Charkowie, doktor nauk ekonomicznych w zakresie teorii ekonomii i historii myśli ekonomicznej, posiadająca tytuł profesora nadzwyczajnego, członkini Akademii Nauk Ekonomicznych Ukrainy oraz Centrum Ukraińsko-Europejskiej Współpracy Naukowej . Doświadczenie zawodowe łączy z działalnością naukową i dydaktyczną, m.in. w zakresie gospodarki światowej, ekonomii narodowej i odpowiedzialności społecznej. Uczestniczka stażu naukowo-dydaktycznego na Uniwersytecie Gdańskim. W działaniach Fundacji kieruje się ideą współpracy międzynarodowej i rozwoju nauki opartej na wartościach humanistycznych, wierząc, że nauka i duchowa twórczość mogą współtworzyć nowoczesne społeczeństwo obywatelskie.'
       },
       {
-        id: 'patryk-blawat',
+        id: 'PB',
         name: 'Patryk Bławat',
         photo: '/images/patryk.png',
-        bio: 'Założyciel stowarzyszenia „Wiatr od Morza”, które od 2021 roku realizuje projekty w ramach budżetu obywatelskiego, organizuje wydarzenia kulturalne i popularyzuje wiedzę o Gdyni. Od 2024 roku radny Dzielnicy Gdynia Cisowa oraz członek Gdyńskiego Komitetu Rewitalizacji. Student gospodarki przestrzennej — łączy działalność społeczną z planowaniem przestrzennym i rozwojem lokalnym.'
+        bio: 'Koordynator projektów - założyciel stowarzyszenia „Wiatr od Morza”, które od 2021 roku realizuje inicjatywy w ramach budżetu obywatelskiego, organizuje wydarzenia kulturalne i popularyzuje wiedzę o historii oraz tożsamości Gdyni. Od 2024 roku pełni funkcję radnego Dzielnicy Gdynia Cisowa, angażując się w działania na rzecz zrównoważonego rozwoju i aktywności obywatelskiej. Student gospodarki przestrzennej Uniwersytetu Gdańskiego, łączy pasję do miast z naukowymi badaniami nad ich przyszłością. W swojej pracy dąży do łączenia lokalnego doświadczenia z szeroką, długofalową wizją rozwoju - postrzega planowanie przestrzenne jako formę odpowiedzialnego projektowania przyszłości społecznej.'
+      },
+      {
+        id: 'DI',
+        name: 'Dominik Igelski',
+        photo: '/images/user.png',
+        bio: 'Członek Rady Fundacji - urodzony w Działdowie w województwie Warmińsko-mazurskim. Absolwent Uniwersytetu Gdańskiego mgr Gospodarki przestrzennej, obecnie pracownik Wydziału Urbanistyki i Architektury Urządu Miejskiego w Gdańsku. Człowiek lubiący udzielać się na wielu polach i starający się dążyć do perfekcji w stawianych sobie celach i wyzwaniach, wierzący, że silna i zaangażowana społeczność jest kluczem do sukcesu co stawia sobie jako priorytet włączając się w działanie Fundacji.'
       },
     ]
   },
@@ -189,7 +192,6 @@ export default {
     project: 'Wybierz projekt',
     projectPlaceholder: 'Wybierz projekt...',
     projectUni: 'Uniwersytet III Wieku',
-    projectPlomyk: 'Płomyk nadziei',
     projectIntern: 'Staże naukowe',
     message: 'Wiadomość',
     rodo1: 'Wyrażam zgodę na przetwarzanie moich danych osobowych w celach kontaktowych.',
@@ -205,7 +207,7 @@ export default {
     addressLabel: 'Adres',
     address: 'ul. Jana Heweliusza 11/811, 80-890 Gdańsk',
     krs: '0001162327',
-    nip: '5835533208',
+    nip: '5833533208',
     regon: '54121717200000',
     navTitle: 'Nawigacja',
     socialTitle: 'Znajdziesz nas',

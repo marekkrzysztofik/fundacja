@@ -101,7 +101,7 @@ function prevSlide() {
 }
 
 .desc {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: black;
 }
 

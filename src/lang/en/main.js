@@ -17,6 +17,7 @@ export default {
     'DIALOGUE'
   ],
   heroButton: 'CONTACT',
+  heroDownload: 'DOWNLOAD OUR STATUTE (PDF)',
 
   priorities: {
     title: 'Priorities for 2025',
@@ -47,42 +48,24 @@ export default {
   },
 
   projects: [
-    {
-      id: 'uniwersytet',
-      title: 'National University of the Third Age for Ukrainians',
-      description: 'A hybrid educational program supporting the development and integration of Ukrainian seniors.',
-      image: '/images/project1.jpg',
-      desc: `An educational initiative for older people of Ukrainian origin, offering hybrid or online classes. 
-      The program aims to foster social activity and intergenerational integration. It involves cooperation 
-      with local governments, including securing a suitable venue. 
-      Universities of the Third Age are a form of informal adult education that allow seniors to explore 
-      interests, gain knowledge, and build social connections.`,
-      cta: 'Join us',
-    },
-    {
-      id: 'plomyk',
-      title: 'Flame of Hope',
-      description: '10-day educational and cultural visits for Ukrainian youth.',
-      image: '/images/project2.png',
-      desc: `Educational and integrative visits to Gdańsk for children and youth from war-affected Ukrainian families. 
-      These week-long trips aim to introduce participants to the history and culture of the city while fostering 
-      a sense of safety, belonging, and possibilities for future life in Poland. 
-      The program offers young participants a break from the war and a chance to connect with Polish peers.`,
-      cta: 'Join the trip',
-    },
-    {
-      id: 'staze',
-      title: 'Scientific Internships in Gdańsk',
-      description: 'A research program with mentoring support for young Ukrainian scientists.',
-      image: '/images/project3.jpg',
-      desc: `A paid internship program for young researchers and students from Ukraine, allowing them to conduct 
-      research and gain experience in academic and municipal institutions in Gdańsk. 
-      The internships include study visits to help participants understand how modern local communities function. 
-      The program aims to support academic careers and foster long-term bonds between Polish and Ukrainian 
-      academic circles.`,
-      cta: 'Apply for internship',
-    }
-  ],
+  {
+    id: 'uniwersytet',
+    title: 'Scientific Webinar Series for Young Researchers',
+    description: 'An online educational program supporting the development of research and publication skills among young scholars.',
+    image: '/images/project1.jpg',
+    desc: `An educational initiative aimed at young scientists and PhD students, offering remote sessions in Polish, English, and Russian. The program is designed to develop research competencies and is conducted by experienced academic staff of the University of Gdańsk. The webinar series is a form of practical academic education, enabling participants to gain knowledge about publishing in journals indexed in Scopus and Web of Science, improve their scientific skills, and build international research networks.`,
+    cta: 'Coming soon',
+  },
+  {
+    id: 'staze',
+    title: 'Research Internships in Gdańsk',
+    description: 'A research program with mentorship support for young scholars from Eastern Partnership countries.',
+    image: '/images/project3.jpg',
+    desc: `A paid internship program for young researchers and students from Eastern Partnership countries, enabling them to conduct research and gain experience in academic and municipal institutions in Gdańsk. The internships are enriched with study visits to better understand how modern local communities function.  
+    The program aims to support academic career development and build long-term connections between the scientific communities of Poland and Ukraine.`,
+    cta: 'Coming soon',
+  },
+],
 
   partners: {
     title: 'Partners',
@@ -155,23 +138,29 @@ export default {
     title: 'Board Members',
     members: [
       {
-        id: 'patryk-blawat',
-        name: 'Patryk Bławat',
-        photo: '/images/patryk.png',
-        bio: 'Founder of the “Wiatr od Morza” association, which since 2021 has been implementing projects under the civic budget, organizing cultural events, and promoting knowledge about Gdynia. Since 2024, a councilor of the Gdynia Cisowa District and a member of the Gdynia Revitalization Committee. As a spatial economy student, he combines social activity with an interest in urban planning and local development.'
+        id: 'AK',
+        name: 'Dr hab. Aleksander Kuczabski',
+        photo: '/images/1.png',
+        bio: 'Chairman of the Foundation Council – born in Lviv, affiliated with the University of Gdańsk, where he works as a professor in the Department of Regional Development. Habilitated Doctor of Earth Sciences in geography (PhD in public management, Ukraine), graduate of Ivan Franko Lviv State University and the National School of Public Administration in Warsaw. Previously held managerial positions in public administration and higher education in Ukraine and was a Lane Kirkland Program Fellow of the Polish-American Fulbright Commission. His academic work focuses on public administration, territorial reforms, and regional development in Poland and Ukraine. Within the Foundation, he combines academic and administrative experience to support the exchange of knowledge and best practices between both countries.'
       },
       {
-        id: 'patryk-blawat',
-        name: 'Patryk Bławat',
-        photo: '/images/patryk.png',
-        bio: 'Founder of the “Wiatr od Morza” association, which since 2021 has been implementing projects under the civic budget, organizing cultural events, and promoting knowledge about Gdynia. Since 2024, a councilor of the Gdynia Cisowa District and a member of the Gdynia Revitalization Committee. As a spatial economy student, he combines social activity with an interest in urban planning and local development.'
+        id: 'OZ',
+        name: 'Dr Olha Zadorozhna',
+        photo: '/images/2.png',
+        bio: 'President of the Foundation – born in Kharkiv, Ukraine, currently residing in Gdańsk. Graduate and lecturer of V. N. Karazin Kharkiv National University, Doctor of Economic Sciences in the field of economic theory and history of economic thought, Associate Professor, member of the Academy of Economic Sciences of Ukraine and the Center for Ukrainian-European Scientific Cooperation. Combines professional experience with research and teaching in global economy, national economy, and social responsibility. Completed a scientific and didactic internship at the University of Gdańsk. In her work within the Foundation, she is guided by the idea of international cooperation and the development of science based on humanistic values, believing that science and spiritual creativity can together shape a modern civil society.'
       },
       {
-        id: 'patryk-blawat',
+        id: 'PB',
         name: 'Patryk Bławat',
         photo: '/images/patryk.png',
-        bio: 'Founder of the “Wiatr od Morza” association, which since 2021 has been implementing projects under the civic budget, organizing cultural events, and promoting knowledge about Gdynia. Since 2024, a councilor of the Gdynia Cisowa District and a member of the Gdynia Revitalization Committee. As a spatial economy student, he combines social activity with an interest in urban planning and local development.'
-      }
+        bio: 'Project Coordinator – founder of the association "Wiatr od Morza" ("Wind from the Sea"), which since 2021 has implemented initiatives within the participatory budget, organized cultural events, and promoted knowledge about the history and identity of Gdynia. Since 2024, he has served as a councilor of the Gdynia Cisowa District, engaging in activities for sustainable development and civic participation. A student of spatial economy at the University of Gdańsk, he combines his passion for cities with academic research on their future. In his work, he strives to merge local experience with a long-term vision of development, viewing spatial planning as a form of responsible design for the social future.'
+      },
+      {
+        id: 'DI',
+        name: 'Dominik Igelski',
+        photo: '/images/user.png',
+        bio: 'Member of the Foundation Council – born in Działdowo, Warmian-Masurian Voivodeship. Graduate of the University of Gdańsk (MSc in Spatial Economy), currently employed at the Department of Urban Planning and Architecture of the Gdańsk City Hall. A person who enjoys engaging in many areas and strives for perfection in his goals and challenges, believing that a strong and committed community is the key to success – a priority he upholds through his involvement in the Foundation.'
+      },
     ]
   },
 
@@ -205,7 +194,7 @@ export default {
     addressLabel: 'Address',
     address: 'Jana Heweliusza St. 11/811, 80-890 Gdańsk, Poland',
     krs: '0001162327',
-    nip: '5835533208',
+    nip: '5833533208',
     regon: '54121717200000',
     navTitle: 'Navigation',
     socialTitle: 'Find us',

@@ -8,14 +8,18 @@
             {{ line }}
           </span>
         </h1>
-        <a @click="visible = true" class="hero-button">
-          {{ langState.t.main.heroButton }}
-        </a>
+        <div>
+          <a class="hero-button hero-button--secondary" href="/files/Statut fundacji_ISEF.pdf" download>
+            {{ langState.t.main.heroDownload }}
+          </a>
+          <a @click="visible = true" class="hero-button">
+            {{ langState.t.main.heroButton }}
+          </a>
+        </div>
       </div>
-      
     </div>
   </section>
-   <Dialog v-model:visible="visible" modal>
+  <Dialog v-model:visible="visible" modal>
     <ContactForm />
   </Dialog>
 </template>
@@ -33,23 +37,27 @@ const visible = ref(false);
 .hero-section {
   background: url('/images/ee2.jpg') no-repeat;
   background-size: cover;
-  background-position: top -110px center; 
- /* background-color: #f5f1fb;*/
+  background-position: top -110px center;
   padding: 4rem 1.5rem;
   height: 89vh;
 }
 
+.buttons {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
 .hero-content {
-  
   position: relative;
-  
   z-index: 2;
 }
+
 .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(245, 241, 251, 0.7);
-    z-index: 1;
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 241, 251, 0.7);
+  z-index: 1;
 }
 
 .hero-title {
@@ -60,8 +68,8 @@ const visible = ref(false);
   color: #4b2c92;
   line-height: 1.4;
   margin-bottom: 1.5rem;
-   position: relative;
-    z-index: 5;
+  position: relative;
+  z-index: 5;
 }
 
 .hero-title span {
@@ -71,7 +79,8 @@ const visible = ref(false);
 }
 
 .hero-button {
-
+  margin-bottom: 1rem;
+  margin-left: 1rem;
   background-color: #4b2c92;
   color: white;
   border: none;
@@ -155,7 +164,7 @@ const visible = ref(false);
 }
 
 @media (min-width: 1628px) {
-.hero-content {
+  .hero-content {
     margin-top: 7rem;
   }
 

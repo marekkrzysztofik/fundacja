@@ -30,10 +30,15 @@ const members = computed(() =>
 <style scoped>
 .board-section {
   margin: 0 auto;
-  max-width: 1300px;
   background-color: #f9f9fb;
   padding: 4rem 1.5rem;
   text-align: center;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-title {
@@ -44,10 +49,10 @@ const members = computed(() =>
 }
 
 .board-grid {
+  max-width: 1500px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
-  justify-content: center;
 }
 
 .member-card {
@@ -63,8 +68,8 @@ const members = computed(() =>
 }
 
 .member-photo {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   object-position: center top;
   border-radius: 50%;
@@ -84,5 +89,12 @@ const members = computed(() =>
   color: #666;
   line-height: 1.6;
   text-align: left;
+}
+
+@media (max-width: 768px) {
+  .board-grid {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
