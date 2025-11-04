@@ -41,7 +41,6 @@ const iconMap = {
 }
 
 
-
 const goals = computed(() =>
   langState.t.main.mission.goals.map((goal) => ({
     ...goal,
@@ -84,7 +83,7 @@ onMounted(() => {
   text-align: center;
 }
 
-.mission-heading { 
+.mission-heading {
   font-size: 2rem;
   font-weight: bold;
   color: var(--violet);
@@ -110,7 +109,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* elementy zaczynają od góry */
+  justify-content: center;
   transition: all 0.6s ease-out;
   padding: 1rem;
   border-radius: 8px;
@@ -134,7 +133,7 @@ onMounted(() => {
 .goal h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  min-height: 3.2em; /* np. miejsce na 2 linijki */
+  min-height: 3.2em;
   color: var(--violet);
   margin-bottom: 0.5rem;
 }
@@ -142,7 +141,7 @@ onMounted(() => {
 .goal p {
   font-size: 0.95rem;
   color: var(--subtitle);
-  min-height: 4.5em; /* np. miejsce na 3 linijki */
+  min-height: 4.5em;
 }
 
 .values {
@@ -155,11 +154,11 @@ onMounted(() => {
   margin: 0 0.5rem;
   color: #aaa;
 }
+
 @media (max-width: 768px) {
   .goals-grid {
-  display: flex;
-  flex-direction: column;
-}
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
-

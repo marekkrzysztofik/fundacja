@@ -158,7 +158,7 @@ export default {
       {
         id: 'DI',
         name: 'Dominik Igelski',
-        photo: '/images/user.png',
+        photo: '/images/dominik.jpeg',
         bio: 'Member of the Foundation Council – born in Działdowo, Warmian-Masurian Voivodeship. Graduate of the University of Gdańsk (MSc in Spatial Economy), currently employed at the Department of Urban Planning and Architecture of the Gdańsk City Hall. A person who enjoys engaging in many areas and strives for perfection in his goals and challenges, believing that a strong and committed community is the key to success – a priority he upholds through his involvement in the Foundation.'
       },
     ]

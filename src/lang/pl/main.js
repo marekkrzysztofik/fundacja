@@ -56,10 +56,39 @@ export default {
       description: 'Program edukacyjny w formie online wspierający rozwój kompetencji naukowych i publikacyjnych młodych badaczy.',
       image: '/images/project1.jpg',
       desc: `Inicjatywa edukacyjna skierowana do młodych naukowców i doktorantów, oferująca zajęcia w formule zdalnej po polsku, angielsku, rosyjsku. Program ma na celu rozwój kompetencji badawczych i prowadzone będą przez doświadczonych pracowników naukowych Uniwersytetu Gdańskiego. Cykl webinarów to forma praktycznej edukacji akademickiej, umożliwiająca uczestnikom zdobycie wiedzy o specyfice publikowania w czasopismach indeksowanych w bazach Scopus i Web of Science, rozwijanie warsztatu naukowego oraz budowanie sieci współpracy międzynarodowej.`,
-
-      cta: 'Dostępne wkrótce',
+      details: {
+        intro: 'Cykl składa się z trzech spotkań online prowadzonych przez wykładowców Uniwersytetu Gdańskiego.',
+        sessions: [
+          {
+            id: 'uni1',
+            title: 'Jak publikować w czasopismach naukowych Scopus i WoS',
+            date: '15 listopada 2025',
+            price: 120,
+            time: '17:00–19:00',
+          },
+          {
+            id: 'uni2',
+            title: 'Budowanie współpracy międzynarodowej w badaniach',
+            date: '22 listopada 2025',
+            price: 120,
+            time: '17:00–19:00',
+          },
+          {
+            id: 'uni3',
+            title: 'Warsztat badacza: metodologia i etyka',
+            date: '29 listopada 2025',
+            price: 120,
+            time: '17:00–19:00',
+          },
+        ],
+        packagePrice: 300,
+        notes: 'Uczestnicy otrzymają certyfikat ukończenia. Webinary będą prowadzone w języku polskim i angielskim.',
+        contact: 'kontakt@isef.pl',
+      },
+      cta: 'Sprawdź terminy',
+      cta2: 'Zapisz się',
     },
-    
+
     {
       id: 'staze',
       title: 'Staże naukowe w Gdańsku',
@@ -67,7 +96,43 @@ export default {
       image: '/images/project3.jpg',
       desc: `Program płatnych staży dla młodych naukowców i studentów z krajów Partnerstwa Wschodniego, umożliwiający im prowadzenie badań i zdobywanie doświadczenia w instytucjach akademickich i miejskich w Gdańsku. Staże wzbogacane są o wizyty studyjne, by lepiej zrozumieć mechanizmy funkcjonowania nowoczesnych społeczności lokalnych.
       Program ma na celu wspieranie rozwoju kariery akademickiej oraz tworzenie długofalowych więzi między środowiskami naukowymi Polski i Ukrainy.`,
-      cta: 'Dostępne wkrótce',
+      details: {
+        intro: `Program stażowy realizowany jest w partnerstwie z Uniwersytetem Gdańskim oraz instytucjami miejskimi. 
+    Uczestnicy przez trzy tygodnie biorą udział w badaniach naukowych, szkoleniach i wizytach studyjnych.`,
+
+        sessions: [
+          {
+            id: 'staz1',
+            title: 'Moduł I: Wprowadzenie do badań społecznych i miejskich',
+            date: '1–7 lipca 2025',
+            price: 600,
+            time: '09:00–15:00',
+          },
+          {
+            id: 'staz2',
+            title: 'Moduł II: Praca badawcza w instytucjach gdańskich',
+            date: '8–14 lipca 2025',
+            price: 600,
+            time: '09:00–15:00',
+          },
+          {
+            id: 'staz3',
+            title: 'Moduł III: Prezentacja wyników i mentoring naukowy',
+            date: '15–21 lipca 2025',
+            price: 600,
+            time: '09:00–15:00',
+          },
+        ],
+
+        packagePrice: 1500,
+        notes: `Program obejmuje łącznie 60 godzin zajęć praktycznych i warsztatowych. 
+    Uczestnicy otrzymują certyfikat oraz indywidualne rekomendacje mentorskie. 
+    Język programu: polski i angielski.`,
+
+        contact: 'kontakt@isef.pl',
+      },
+      cta: 'Sprawdź terminy',
+      cta2: 'Zapisz się',
     },
     // {
     //   id: 'plomyk',
@@ -79,6 +144,34 @@ export default {
     //   cta: 'Dołącz do turnusu',
     // },
   ],
+  signup: {
+    title: 'Formularz zgłoszeniowy',
+    fields: {
+      name: 'Imię i nazwisko',
+      email: 'Adres e-mail',
+    },
+    labels: {
+      choose: 'Wybierz webinary, w których chcesz uczestniczyć:',
+      newsletter: 'Zapisz mnie do newslettera',
+      terms: 'Akceptuję',
+      termsLink: 'regulamin',
+      rodoLink: 'RODO',
+      total: 'Łączna kwota:',
+      submit: 'Wyślij zgłoszenie',
+    },
+    payment: {
+      title: 'Dane do przelewu',
+      account:
+        'Fundacja ISEF\nNr konta: 12 3456 7890 1234 5678 9012 3456\nTytuł: Imię i nazwisko + „Webinar ISEF”',
+      email: 'kontakt@isef.pl',
+      note: 'Potwierdzenie przelewu prosimy wysłać na powyższy adres e-mail.',
+    },
+    links: {
+      terms: '/files/regulamin.pdf',
+      rodo: '/files/rodo.pdf',
+    },
+  },
+
 
   partners: {
     title: 'Partnerzy',
@@ -173,7 +266,7 @@ export default {
       {
         id: 'DI',
         name: 'Dominik Igelski',
-        photo: '/images/user.png',
+        photo: '/images/dominik.jpeg',
         bio: 'Członek Rady Fundacji - urodzony w Działdowie w województwie Warmińsko-mazurskim. Absolwent Uniwersytetu Gdańskiego mgr Gospodarki przestrzennej, obecnie pracownik Wydziału Urbanistyki i Architektury Urządu Miejskiego w Gdańsku. Człowiek lubiący udzielać się na wielu polach i starający się dążyć do perfekcji w stawianych sobie celach i wyzwaniach, wierzący, że silna i zaangażowana społeczność jest kluczem do sukcesu co stawia sobie jako priorytet włączając się w działanie Fundacji.'
       },
     ]
@@ -201,7 +294,7 @@ export default {
   },
 
   footer: {
-    logoTitle: 'Fundacja ISEF',
+    logoTitle: 'Fundacja',
     logoText: 'INTERNATIONAL SCIENTIFIC AND EDUCATIONAL FORUM',
     contactTitle: 'Dane kontaktowe',
     addressLabel: 'Adres',

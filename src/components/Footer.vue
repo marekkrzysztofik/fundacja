@@ -1,13 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer-container">
-      
-      <div class="footer-logo">
-        <h2>{{ langState.t.main.footer.logoTitle }}</h2>
-        <p>{{ langState.t.main.footer.logoText }}</p>
-      </div>
-
-      <div class="footer-info">
+      <div class="footer-nav">
         <h3>{{ langState.t.main.footer.contactTitle }}</h3>
         <p><strong>{{ langState.t.main.footer.addressLabel }}:</strong> {{ langState.t.main.footer.address }}</p>
         <p><strong>KRS:</strong> {{ langState.t.main.footer.krs }}</p>
@@ -15,24 +9,37 @@
         <p><strong>REGON:</strong> {{ langState.t.main.footer.regon }}</p>
       </div>
 
-      <nav class="footer-nav">
+      <nav class="footer-nav"> 
         <h3>{{ langState.t.main.footer.navTitle }}</h3>
         <a href="#mission">{{ langState.t.main.navbar.mission }}</a>
+        <a href="#priorities">{{ langState.t.main.navbar.priorities }}</a>
         <a href="#projects">{{ langState.t.main.navbar.projects }}</a>
         <a href="#team">{{ langState.t.main.navbar.about }}</a>
         <a href="#contact">{{ langState.t.main.navbar.contact }}</a>
       </nav>
 
-      <div class="footer-socials">
-        <h3>{{ langState.t.main.footer.socialTitle }}</h3>
-        <div class="social-links">
-          <a href="https://facebook.com" target="_blank" aria-label="Facebook"><Facebook class="icon" /></a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><Instagram class="icon" /></a>
-          <a href="mailto:kontakt@fundacja.pl" aria-label="E-mail"><Mail class="icon" /></a>
+
+      <div class="footer-logo">
+        <div @click="goHome" class="navbar-logo">
+          <a href="">Fundacja</a>
+          <img class="logo" src="/images/logo.png" alt="">
         </div>
+        <p>{{ langState.t.main.footer.logoText }}</p>
       </div>
     </div>
-
+    <div class="footer-bottom">
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <Facebook class="icon" />
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <Instagram class="icon" />
+        </a>
+        <a href="mailto:kontakt@fundacja.pl" aria-label="E-mail">
+          <Mail class="icon" />
+        </a>
+      </div>
+    </div>
     <div class="footer-bottom">
       <p>&copy; {{ new Date().getFullYear() }} {{ langState.t.main.footer.copy }}</p>
     </div>
@@ -45,6 +52,28 @@ import langState from '@/lang/langState'
 </script>
 
 <style scoped>
+.logo {
+  width: 140px;
+  height: fit-content;
+}
+
+.navbar-logo {
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-logo a {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
 .footer {
   background: linear-gradient(135deg, #1c1c3c, #3a3a6a);
   color: #fff;
@@ -59,6 +88,11 @@ import langState from '@/lang/langState'
   gap: 4rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
 }
 
 .footer-logo h2 {
@@ -97,7 +131,7 @@ import langState from '@/lang/langState'
 }
 
 .footer-nav a {
-  color: #bfbfbd;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -107,8 +141,9 @@ import langState from '@/lang/langState'
   color: var(--violet);
 }
 
-.footer-socials .social-links {
+.social-links {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   align-items: center;
 }
@@ -127,7 +162,7 @@ import langState from '@/lang/langState'
 
 .footer-bottom {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 0.9rem;
   color: #a9a9a9;
 }

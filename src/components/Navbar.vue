@@ -1,12 +1,10 @@
 <template>
   <header class="navbar" :class="{ hidden: isNavbarHidden }">
     <div class="navbar-container">
-      <div class="navbar-logo">
-        <a @click="goHome">{{ langState.t.main.footer.logoTitle }}</a>
+      <div @click="goHome" class="navbar-logo">
+        <a href="">Fundacja</a>
+        <img class="logo" src="/images/logo.png" alt="">
       </div>
-
-      <!-- 🌐 Dropdown wyboru języka -->
-
 
       <button class="hamburger" @click="isMenuOpen = !isMenuOpen">
         <span :class="{ open: isMenuOpen }"></span>
@@ -124,7 +122,11 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* ✅ Podstawowe style navbara */
+.logo {
+  width: 100px;
+  height:fit-content;
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -148,13 +150,19 @@ onUnmounted(() => {
   align-items: center;
   position: relative;
 }
-
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
 /* 🔹 LOGO */
 .navbar-logo a {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #4b2c92;
   cursor: pointer;
+  text-transform: uppercase;
   text-decoration: none;
 }
 

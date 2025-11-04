@@ -10,7 +10,8 @@
               <div class="image-wrapper">
                 <img :src="project.image" :alt="project.title" class="photo" />
               </div>
-              <button class="cta-button">{{ project.cta }}</button>
+              <button class="cta-button" @click="openDetails(project)">{{ project.cta }}</button>
+              <button class="cta-button" @click="openSignup(project)">Zapisz się</button>
             </div>
             <div class="text-content">
               <div class="card-grid">
@@ -28,13 +29,26 @@
       <button class="nav-btn right" @click="nextSlide">›</button>
     </div>
   </section>
+  <Dialog v-model:visible="visibleDetails" modal header="Szczegóły programu" style="width: 90vw; max-width: 800px">
+    <WebinarDetails v-if="activeProject" :project="activeProject" />
+  </Dialog>
+
+  <Dialog v-model:visible="visibleSignup" modal header="Formularz zapisów" style="width: 90vw; max-width: 800px">
+    <WebinarSignUp v-if="activeProject" :project="activeProject" />
+  </Dialog>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import Dialog from 'primevue/dialog'
 import langState from '@/lang/langState'
+import WebinarDetails from '@/Actions/WebinarDetails.vue'
+import WebinarSignUp from '@/Actions/WebinarSignUp.vue'
 
 const currentSlide = ref(0)
+const visibleDetails = ref(false)
+const visibleSignup = ref(false)
+const activeProject = ref(null)
 
 function nextSlide() {
   if (currentSlide.value < langState.t.main.projects.length - 1) currentSlide.value++
@@ -42,6 +56,17 @@ function nextSlide() {
 function prevSlide() {
   if (currentSlide.value > 0) currentSlide.value--
 }
+
+function openDetails(project) {
+  activeProject.value = project
+  visibleDetails.value = true
+}
+
+function openSignup(project) {
+  activeProject.value = project
+  visibleSignup.value = true
+}
+
 </script>
 
 <style scoped>
@@ -165,6 +190,7 @@ function prevSlide() {
 
 .cta-button {
   margin-top: 1rem;
+  margin-right: 1rem;
   background: var(--violet);
   color: #fff;
   font-size: 1rem;
@@ -213,12 +239,10 @@ function prevSlide() {
 @media (max-width: 768px) {
   .slider-wrapper {
     height: auto;
-    /* pozwala treści rosnąć zamiast wymuszać 100vh */
   }
 
   .scroll-track {
     flex-direction: column;
-    /* każdy slide pod sobą (opcjonalne) */
   }
 
   .slide {

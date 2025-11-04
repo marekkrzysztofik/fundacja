@@ -1,5 +1,6 @@
 <template>
   <section class="hero-section" id="hero">
+    <div class="overlay"></div>
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
@@ -7,16 +8,18 @@
             {{ line }}
           </span>
         </h1>
-        <a @click="visible = true" class="hero-button">
-          {{ langState.t.main.heroButton }}
-        </a>
-      </div>
-      <div class="hero-image">
-        <img src="/images/ee.jpg" alt="Ilustracja" />
+        <div class="buttons">
+          <a class="hero-button hero-button--secondary" href="/files/Statut fundacji_ISEF.pdf" download>
+            {{ langState.t.main.heroDownload }}
+          </a>
+          <a @click="visible = true" class="hero-button">
+            {{ langState.t.main.heroButton }}
+          </a>
+        </div>
       </div>
     </div>
   </section>
-   <Dialog v-model:visible="visible" modal>
+  <Dialog v-model:visible="visible" modal>
     <ContactForm />
   </Dialog>
 </template>
@@ -32,43 +35,36 @@ const visible = ref(false);
 
 <style scoped>
 .hero-section {
- /* background: url('/images/ee.jpg') center center / cover no-repeat; */
- /* background-color: #f5f1fb;*/
-  padding: 0;
-  height: 90vh;
+  background: url('/images/ee2.jpg') no-repeat;
+  background-size: cover;
+  background-position: top -110px center;
+  padding: 4rem 1.5rem;
+  height: 89vh;
+  position: relative;
 }
 
 .hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: #f5f1fb;
+  position: relative;
+  z-index: 2;
 }
-
 
 .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(245, 241, 251, 0.2);
-    z-index: 1;
-}
-.hero-text {
-  margin-left: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 241, 251, 0.7);
+  z-index: 1;
 }
 
 .hero-title {
   display: flex;
   flex-direction: column;
-  font-size: 2.7rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #4b2c92;
   line-height: 1.4;
   margin-bottom: 1.5rem;
-   position: relative;
-    z-index: 5;
+  position: relative;
+  z-index: 5;
 }
 
 .hero-title span {
@@ -78,7 +74,8 @@ const visible = ref(false);
 }
 
 .hero-button {
-  
+  margin-bottom: 1rem;
+  margin-left: 1rem;
   background-color: #4b2c92;
   color: white;
   border: none;
@@ -94,25 +91,11 @@ const visible = ref(false);
   background-color: #362070;
 }
 
-
-.hero-image {
-  position: relative; 
+.hero-text {
+  padding: 1rem 3rem;
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
-.hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
- background: rgba(245, 241, 251, 0.4);
-  z-index: 1;
-}
-
-.hero-image img {
-  width: 100%;
-  display: block;
-  position: relative;
-  z-index: 0; /* obraz pod overlayem */
-}
 
 @keyframes slideInLeft {
   0% {
@@ -125,25 +108,6 @@ const visible = ref(false);
     transform: translateX(0);
   }
 }
-
-@keyframes slideInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-
-
-.hero-actions {
-  animation: slideInLeft 1s ease-out forwards;
-}
-
 
 
 @media (max-width: 768px) {
@@ -162,6 +126,17 @@ const visible = ref(false);
 
   .hero-title {
     font-size: 1.5rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1628px) {
+  .hero-content {
+    margin-top: 7rem;
   }
 }
 </style>
