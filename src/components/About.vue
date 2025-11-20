@@ -30,7 +30,6 @@ const members = computed(() =>
 <style scoped>
 .board-section {
   margin: 12rem auto;
-  
   padding: 4rem 1.5rem;
   text-align: center;
 }
@@ -92,7 +91,14 @@ const members = computed(() =>
 }
 
 @media (max-width: 768px) {
+  .member-card {
+    width: 100%;
+  }
+  .board-section {
+    padding: 0;
+  }
   .board-grid {
+    max-width: 90%;
     display: flex;
     flex-direction: column;
   }

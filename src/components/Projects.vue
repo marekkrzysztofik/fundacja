@@ -59,7 +59,7 @@ function prevSlide() {
 }
 
 function goToProject (project) {
-  router.push(`/project/${project.id}`)
+  router.push(`/webinar/${project.id}`)
 }
 
 function openDetails(project) {
@@ -76,13 +76,14 @@ function openSignup(project) {
 
 <style scoped>
 .scroll-section {
-  margin: 7rem 0;
+  
   position: relative;
   background: white;
   overflow: hidden;
 }
 
 .slider-wrapper {
+  margin: 7rem 0;
   position: relative;
   width: 100%;
   height: 100vh;
@@ -138,6 +139,7 @@ function openSignup(project) {
 }
 
 .heading {
+  margin-top: 4rem;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -282,8 +284,7 @@ function openSignup(project) {
   }
 
   .text-content {
-    width: 100%;
-    text-align: center;
+    display: none;
   }
 
   .card {
