@@ -2,8 +2,8 @@
   <header class="navbar" :class="{ hidden: isNavbarHidden }">
     <div class="navbar-container">
       <div @click="goHome" class="navbar-logo">
-        <a href="">Fundacja</a>
-        <img class="logo" src="/images/logo.png" alt="">
+        <a>Fundacja</a>
+        <img class="logo" src="/images/logo.png">
       </div>
 
       <button class="hamburger" @click="isMenuOpen = !isMenuOpen">
@@ -14,12 +14,12 @@
 
       <transition name="mobile-menu">
         <nav class="navbar-menu" :class="{ open: isMenuOpen }" v-show="isMenuOpen || isDesktop">
-          <a v-for="(link, index) in navLinks" :key="index" @click.prevent="handleNavClick(link.href)">
+          <a v-for="(link, index) in navLinks" :key="index" @click.prevent="goToHash(link.href)">
             {{ link.label }}
           </a>
-          <a @click="visible = true" class="contact-button">{{ langState.t.main.navbar.contact }}</a>
+          <button @click="visible = true" class="btn">{{ langState.t.main.navbar.contact }}</button>
           <div class="lang-switch" @click="toggleLangMenu">
-            <span>{{ currentLangLabel }}</span> ⌄
+            <span>{{ currentLangLabel }}</span>
             <ul v-if="langMenuOpen" class="lang-menu">
               <li v-for="lang in languages" :key="lang.code" @click.stop="changeLang(lang.code)">
                 <span>{{ lang.flag }}</span> {{ lang.label }}
@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import langState from '@/lang/langState'
 import Dialog from 'primevue/dialog'
 import ContactForm from '@/components/ContactForm.vue'
@@ -47,7 +47,7 @@ import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
 
-// 🔹 Navbar scroll
+
 let lastScroll = 0
 const isNavbarHidden = ref(false)
 const isMenuOpen = ref(false)
@@ -55,7 +55,7 @@ const windowWidth = ref(window.innerWidth)
 const visible = ref(false)
 const isDesktop = computed(() => windowWidth.value > 768)
 
-// 🔹 Linki nawigacji
+
 const navLinks = computed(() => [
   { href: '#mission', label: langState.t.main.navbar.mission },
   { href: '#priorities', label: langState.t.main.navbar.priorities },
@@ -63,14 +63,13 @@ const navLinks = computed(() => [
   { href: '#team', label: langState.t.main.navbar.about },
 ])
 
-// 🔹 Obsługa języka
 const languages = [
   { code: 'pl', label: 'Polski', flag: '🇵🇱' },
   { code: 'en', label: 'English', flag: '🇬🇧' },
   { code: 'ua', label: 'Українська', flag: '🇺🇦' },
   { code: 'ru', label: 'Русский', flag: '🇷🇺' }
 ]
-const currentLang = ref('pl')
+
 const langMenuOpen = ref(false)
 
 const currentLangLabel = computed(() => {
@@ -84,19 +83,31 @@ function toggleLangMenu() {
 
 function changeLang(code) {
   langState.lang = code
-  langMenuOpen.value = false
+  toggleLangMenu()
 }
 
-// 🔹 Funkcje scroll i resize
-const handleNavClick = (href) => {
-  const el = document.querySelector(href)
+const goToHash = async (hash) => {
+  if (route.path !== '/') {
+    await router.push({ path: '/', hash })
+    await nextTick()
+  }
+
+  const el = document.querySelector(hash)
   if (el) el.scrollIntoView({ behavior: 'smooth' })
+
+  isMenuOpen.value = false
+}
+
+
+function linkTo(href) {
+  router.push(`/${href}`);
   isMenuOpen.value = false
 }
 
 function goHome() {
   if (route.path === '/') window.scrollTo({ top: 0, behavior: 'smooth' })
   else router.push('/')
+  isMenuOpen.value = false
 }
 
 function handleScroll() {
@@ -124,7 +135,7 @@ onUnmounted(() => {
 <style scoped>
 .logo {
   width: 100px;
-  height:fit-content;
+  height: fit-content;
 }
 
 .navbar {
@@ -150,12 +161,14 @@ onUnmounted(() => {
   align-items: center;
   position: relative;
 }
+
 .navbar-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
 }
+
 /* 🔹 LOGO */
 .navbar-logo a {
   font-size: 1rem;
@@ -185,18 +198,7 @@ onUnmounted(() => {
   color: #4b2c92;
 }
 
-.contact-button {
-  background: #4b2c92;
-  color: white !important;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
 
-.contact-button:hover {
-  background: #362070;
-}
 
 /* 🔹 DROPDOWN JĘZYKOWY */
 .lang-switch {

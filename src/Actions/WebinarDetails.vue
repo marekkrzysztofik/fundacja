@@ -1,8 +1,5 @@
 <template>
   <div class="webinar-details">
-    <h2 class="details-title">{{ project.title }}</h2>
-    <p class="details-intro">{{ project.details.intro }}</p>
-
     <div class="session-list">
       <div
         v-for="(session, index) in project.details.sessions"
@@ -46,7 +43,8 @@ defineProps({
   background: #faf9fb;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 6px 24px rgba(91, 44, 111, 0.15);
+  border-left: 5px solid var(--violet);
+  
   color: #333;
 }
 
@@ -71,7 +69,6 @@ defineProps({
 
 .session-card {
   background: white;
-  border-left: 5px solid var(--violet);
   padding: 1.2rem 1.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -83,14 +80,14 @@ defineProps({
 }
 
 .session-info h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--violet);
   margin-bottom: 0.3rem;
 }
 
 .session-info p {
   margin: 0.2rem 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .package-summary {

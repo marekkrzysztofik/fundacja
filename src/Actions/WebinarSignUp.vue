@@ -13,12 +13,12 @@
             <div class="checkbox-group">
                 <label v-for="session in project.details.sessions" :key="session.id">
                     <input type="checkbox" v-model="form.selected" :value="session.id" />
-                    {{ session.title }} ({{ session.date }}) — {{ session.price }} zł
+                    {{ session.title }} ({{ session.date }}) — {{ session.price }} €
                 </label>
             </div>
 
             <div class="total">
-                {{ signup.labels.total }} <strong>{{ totalPrice }} zł</strong>
+                {{ signup.labels.total }} <strong>{{ totalPrice }} €</strong>
             </div>
 
             <div class="newsletter">

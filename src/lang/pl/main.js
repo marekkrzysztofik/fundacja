@@ -51,6 +51,73 @@ export default {
 
   projects: [
     {
+      id: 'publikacja',
+      title: 'Cykl webinariów „Dobra publikacja”',
+      description: 'To seria spotkań online poświęconych praktycznym aspektom przygotowywania i publikowania artykułów naukowych w międzynarodowych czasopismach.',
+      image: '/images/project1.jpg',
+      desc: `To seria spotkań online poświęconych praktycznym aspektom przygotowywania i publikowania artykułów naukowych w międzynarodowych czasopismach. Program został stworzony z myślą o doktorantach i młodych badaczach z krajów Europy Wschodniej i Kaukazu, którzy chcą podnieść swoje kompetencje publikacyjne oraz zwiększyć widoczność naukową w środowisku międzynarodowym. Uczestnicy poznają proces tworzenia wartościowych badań, zasady pisania dobrych artykułów oraz kluczowe elementy skutecznego procesu publikacyjnego.
+W trakcie seminariów i warsztatów uczestnicy zdobędą wiedzę niezbędną do świadomego projektowania badań oraz przygotowywania tekstów zgodnych z wymogami czasopism naukowych. Program oferuje m.in.:
+- praktyczne wskazówki dotyczące formułowania celu badań, pytań i hipotez,
+- omówienie struktury artykułu empirycznego i pracy z recenzentami,
+- wiedzę o wyborze odpowiedniego czasopisma i właściwym przygotowaniu zgłoszenia publikacyjnego.
+Pełen plan tematyczny znajduje się poniżej opisu. Osoby, które zapiszą się na wszystkie webinary, otrzymają zniżkę -25%.
+ 
+Spotkania realizowane są online na platformie Google Meet i prowadzone w trzech językach: angielskim, rosyjskim i ukraińskim - w zależności od prowadzącego (dr Maciej Tarkowski oraz prof. UG Aleksander Kuczabski). Dokładne daty poszczególnych spotkań oraz język danego webinaru zostaną podane wkrótce.
+`,
+      details: {
+        intro: 'Cykl webinarów pt. „Dobra publikacja” składa się z pięciu interaktywnych seminariów internetowych i warsztatów.',
+        sessions: [
+          {
+            id: 'pub1',
+            title: 'Jak przeprowadzić wartościowe badanie naukowe',
+            date: 'orientacyjnie 5 grudnia 2025',
+            price: 30,
+            time: '1.5h',
+            values: ['Poszukiwanie luki badawczej', 'Sformułowanie celu badań, pytań lub hipotez badawczych', 'Studia literaturowe - narracyjny i systematyczny przegląd literatury',
+              'Studia empiryczne - zakres versus głębia wnioskowania, metody ilościowe i jakościowe, metoda triangulacji w badaniach społecznych', 'Dyskusja wyników i ich znaczenie dla stanu wiedzy naukowej'
+            ]
+          },
+          {
+            id: 'pub2',
+            title: 'Jak napisać dobry artykuł',
+            date: 'orientacyjnie 12 grudnia 2025',
+            price: 30,
+            time: '1.5h',
+            values: ['Pięć złotych zasad pisania artykułu naukowego', 'Typowa struktura artykułu empirycznego', 'Artykuł naukowy okiem recenzenta'
+            ]
+          },
+          {
+            id: 'pub3',
+            title: 'Jak opublikować w dobrym czasopiśmie',
+            date: 'orientacyjnie 19 grudnia 2025',
+            price: 30,
+            time: '1.5h',
+            values: ['Charakterystyka czasopism naukowych', 'Kryteria wyboru czasopisma', 'Przestrzeganie instrukcji dla autorów', 'List przewodni do redaktora', 'Dialog z recenzentami'
+            ]
+          },
+          {
+            id: 'pub4',
+            title: 'Jak znaleźć odpowiednie czasopismo dla naszego artykułu',
+            date: 'orientacyjnie 8-14 grudnia 2025',
+            price: 50,
+            time: '1.5h',
+          },
+          {
+            id: 'pub5',
+            title: 'Jak prawidłowo złożyć artykuł do publikacji',
+            date: 'orientacyjnie 15-22 grudnia 2025',
+            price: 50,
+            time: '1.5h',
+          },
+        ],
+        packagePrice: 300,
+        notes: 'Uczestnicy otrzymają certyfikat ukończenia. Webinary będą prowadzone w języku polskim i angielskim.',
+        contact: 'kontakt@isef.pl',
+      },
+      cta: 'Sprawdź terminy',
+      cta2: 'Zapisz się',
+    },
+    {
       id: 'uniwersytet',
       title: 'Cykl Webinarów Naukowych dla Młodych Badaczy',
       description: 'Program edukacyjny w formie online wspierający rozwój kompetencji naukowych i publikacyjnych młodych badaczy.',
@@ -309,10 +376,26 @@ export default {
 
   news: [
     {
-      title: 'Warsztaty kulturowe dla młodzieży z Ukrainy',
-      text: '2 sierpnia 2025 roku odbyły się wyjątkowe warsztaty integracyjne, w których wzięło udział ponad 40 młodych uczestników z Polski i Ukrainy. W programie znalazły się spotkania z lokalnymi artystami, nauka języka polskiego oraz zajęcia kreatywne. Dzięki wsparciu partnerów udało się stworzyć przestrzeń do dialogu międzykulturowego i budowania nowych przyjaźni.',
+      title: 'Trwają zapisy na webinary!',
+      text: 'Rozpoczynamy zapisy na cykl pięciu webinariów „Dobra publikacja”, skierowany do doktorantów i młodych badacz, którzy chcą podnieść swoje kompetencje publikacyjne. Uczestnicy poznają praktyczne zasady przygotowywania badań, pisania artykułów oraz skutecznego procesu publikacji w międzynarodowych czasopismach. Spotkania odbędą się online w trzech wariantach językowych: angielskim, rosyjskim i ukraińskim, a prowadzone będą przez dr. Macieja Tarkowskiego oraz prof. UG Aleksandra Kuczabskiego. Osoby zapisujące się na cały cykl otrzymają zniżkę -25%.',
+      button: 'Sprawdź terminy',
+      image: '/images/webinar.jpg',
+      date: '20.11.2025'
+    },
+    {
+      title: 'Wizyta Pani dr Olgi Dorokhina z St. King Tamar University w Tbilisi.',
+      text: `Miło nam poinformować, że Gdańsk odwiedziła Pani dr Olga Dorokhina z St. King Tamar University w Tbilisi. Wizyta odbyła się na zaproszenie Fundacji ISEF i stanowiła okazję do rozmów o możliwych kierunkach współpracy oraz zaangażowania Pani Doktor w przyszłe projekty Fundacji.
+W ramach wizyty Pani dr Dorokhina wygłosiła również referat pt. „Borderization in Georgia as a Gray Zone Instrument for Institutionalizing Ambiguity” w Instytucie Geografii Społeczno-Ekonomicznej i Gospodarki Przestrzennej Uniwersytetu Gdańskiego, spotykając się z dużym zainteresowaniem ze strony pracowników i studentów.
+Mimo niesprzyjającej pogody udało się pokazać gościowi uroki Gdańska oraz opowiedzieć o historii miasta i jego współczesnych wyzwaniach. Wizyta zapowiada dalszą, obiecującą współpracę.
+`,
+      image: '/images/wizyta.jpg',
+      date: '19.11.2025'
+    },
+    {
+      title: 'Koncert charytatywny na rzecz młodych talentów',
+      text: '20 sierpnia 2025 r. zorganizowaliśmy koncert charytatywny w centrum Gdańska, podczas którego wystąpili młodzi artyści z regionu. Dochód z wydarzenia przeznaczony został na stypendia dla utalentowanej młodzieży z trudnych środowisk. Dzięki wsparciu mieszkańców udało się zebrać ponad 50 000 zł!',
       image: '/images/project1.jpg',
-      date: '02.08.2025'
+      date: '20.08.2025'
     },
     {
       title: 'Fundacja rozpoczyna nowy projekt "Most Pokoleń"',
@@ -321,10 +404,10 @@ export default {
       date: '10.08.2025'
     },
     {
-      title: 'Koncert charytatywny na rzecz młodych talentów',
-      text: '20 sierpnia 2025 r. zorganizowaliśmy koncert charytatywny w centrum Gdańska, podczas którego wystąpili młodzi artyści z regionu. Dochód z wydarzenia przeznaczony został na stypendia dla utalentowanej młodzieży z trudnych środowisk. Dzięki wsparciu mieszkańców udało się zebrać ponad 50 000 zł!',
+      title: 'Warsztaty kulturowe dla młodzieży z Ukrainy',
+      text: '2 sierpnia 2025 roku odbyły się wyjątkowe warsztaty integracyjne, w których wzięło udział ponad 40 młodych uczestników z Polski i Ukrainy. W programie znalazły się spotkania z lokalnymi artystami, nauka języka polskiego oraz zajęcia kreatywne. Dzięki wsparciu partnerów udało się stworzyć przestrzeń do dialogu międzykulturowego i budowania nowych przyjaźni.',
       image: '/images/project1.jpg',
-      date: '20.08.2025'
-    }
+      date: '02.08.2025'
+    },
   ]
 }

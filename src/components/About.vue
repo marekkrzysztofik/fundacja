@@ -16,7 +16,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import langState from '@/lang/langState' // dostosuj ścieżkę
+import langState from '@/lang/langState'
 
 const boardTitle = computed(() =>
   langState.t.main.board?.title ?? langState.t.main.team?.title ?? 'Członkowie zarządu'
@@ -29,7 +29,7 @@ const members = computed(() =>
 
 <style scoped>
 .board-section {
-  margin: 0 auto;
+  margin: 12rem auto;
   background-color: #f9f9fb;
   padding: 4rem 1.5rem;
   text-align: center;
@@ -49,9 +49,9 @@ const members = computed(() =>
 }
 
 .board-grid {
-  max-width: 1500px;
+  max-width: 80%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 

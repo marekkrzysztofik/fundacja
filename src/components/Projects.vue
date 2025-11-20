@@ -10,7 +10,7 @@
               <div class="image-wrapper">
                 <img :src="project.image" :alt="project.title" class="photo" />
               </div>
-              <button class="cta-button" @click="openDetails(project)">{{ project.cta }}</button>
+              <button class="cta-button" @click="goToProject(project)">{{ project.cta }}</button>
               <button class="cta-button" @click="openSignup(project)">Zapisz się</button>
             </div>
             <div class="text-content">
@@ -44,7 +44,8 @@ import Dialog from 'primevue/dialog'
 import langState from '@/lang/langState'
 import WebinarDetails from '@/Actions/WebinarDetails.vue'
 import WebinarSignUp from '@/Actions/WebinarSignUp.vue'
-
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const currentSlide = ref(0)
 const visibleDetails = ref(false)
 const visibleSignup = ref(false)
@@ -55,6 +56,10 @@ function nextSlide() {
 }
 function prevSlide() {
   if (currentSlide.value > 0) currentSlide.value--
+}
+
+function goToProject (project) {
+  router.push(`/project/${project.id}`)
 }
 
 function openDetails(project) {
@@ -71,6 +76,7 @@ function openSignup(project) {
 
 <style scoped>
 .scroll-section {
+  margin: 7rem 0;
   position: relative;
   background: white;
   overflow: hidden;
@@ -128,6 +134,7 @@ function openSignup(project) {
 .desc {
   font-size: 1rem;
   color: black;
+  
 }
 
 .heading {
@@ -158,6 +165,7 @@ function openSignup(project) {
   box-shadow: 0 3px 15px rgba(91, 44, 111, 0.1);
   transition: transform 0.3s ease;
   border-left: 5px solid var(--violet);
+  overflow: hidden;
 }
 
 .card:hover {

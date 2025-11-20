@@ -1,28 +1,30 @@
 <template>
   <section class="news-section">
-    <div class="news-card">
-      <transition name="slide-fade" mode="out-in">
-        <div :key="currentNews.title" class="news-content">
-          <h2 class="news-title">{{ currentNews.title }}</h2>
+    <div class="slider-wrapper">
+      <button @click="prevSlide" class="slider-btn left">
+        <ChevronLeft class="icon" />
+      </button>
 
-          <div class="slider-controls">
-            <button @click="prevNews" aria-label="Poprzednia" class="nav-btn">
-              <ChevronLeft class="arrow" />
-            </button>
+      <div class="viewport">
+        <div class="slides" :style="{
+          transform: `translateX(-${currentIndex * slideWidth}%)`,
+        }">
+          <div v-for="(item, index) in newsList" :key="index" class="news-box">
+            <img :src="item.image" class="news-img" :alt="item.title" />
 
-            <div class="news-image-wrapper">
-              <img :src="currentNews.image" :alt="currentNews.title" class="news-image" />
-            </div>
+            <h3 class="news-title">{{ item.title }}</h3>
 
-            <button @click="nextNews" aria-label="Następna" class="nav-btn">
-              <ChevronRight class="arrow" />
-            </button>
+            <p class="news-text">{{ item.text }}</p>
+            <button v-if="item.button" @click="linkTo('webinars')" class="btn news-btn">{{ item.button }}</button>
+
+            <p class="news-date">{{ item.date }}</p>
           </div>
-
-          <p class="news-text">{{ currentNews.text }}</p>
-          <p class="news-date">{{ currentNews.date }}</p>
         </div>
-      </transition>
+      </div>
+
+      <button @click="nextSlide" class="slider-btn right">
+        <ChevronRight class="icon" />
+      </button>
     </div>
   </section>
 </template>
@@ -31,191 +33,169 @@
 import { ref, computed } from 'vue'
 import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import langState from '@/lang/langState'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const newsList = computed(() => langState.t.main.news)
 
-const currentIndex = ref(0)
-const currentNews = computed(() => newsList.value[currentIndex.value])
+const itemsPerSlide = window.innerWidth < 768 ? 1 : 2
 
-const prevNews = () => {
-  currentIndex.value = (currentIndex.value - 1 + newsList.value.length) % newsList.value.length
+const currentIndex = ref(0)
+
+
+const slideWidth = 100 / itemsPerSlide
+
+const maxIndex = computed(() =>
+  Math.ceil(newsList.value.length / itemsPerSlide)
+)
+
+const nextSlide = () => {
+  console.log(maxIndex.value)
+  currentIndex.value = currentIndex.value >= maxIndex.value ? 0 : currentIndex.value + 1
 }
-const nextNews = () => {
-  currentIndex.value = (currentIndex.value + 1) % newsList.value.length
+
+const prevSlide = () => {
+  currentIndex.value = currentIndex.value <= 0 ? maxIndex.value : currentIndex.value - 1
+}
+
+function linkTo(href) {
+  router.push(`/${href}`);
 }
 </script>
 
 <style scoped>
 .news-section {
-  display: flex;
-  justify-content: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(135deg, #f5f6fb, #eef0f8);
+  width: 100%;
+  padding: 4rem 0;
+  background-color: var(--light);
 }
 
-/* Karta większa i bardziej elegancka */
-.news-card {
-  width: 95%;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(200, 200, 200, 0.2);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 3rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
 
-/* Tytuł */
-.news-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #4b2c92;
-  text-align: center;
-}
-
-/* Strzałki + obrazek */
-.slider-controls {
+.slider-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
 }
 
-.nav-btn {
+.viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.news-box {
+  flex: 0 0 47%;
+  background: white;
+  margin: 1rem;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(210, 210, 210, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.news-img {
+  height: 230px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.news-btn {
+ width: 200px;
+}
+.news-title {
+  min-height: 5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4b2c92;
+  
+}
+.news-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #333;
+  flex-grow: 1;
+}
+
+.news-date {
+  margin-top: 1rem;
+  text-align: right;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+
+.slider-btn {
   background: var(--violet);
   border: none;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  padding: 0.7rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, background 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  transition: 0.2s;
 }
 
-.nav-btn:hover {
+.slider-btn:hover {
+  transform: translateY(-50%) scale(1.1);
   background: #5a33a1;
-  transform: scale(1.1);
 }
 
-.arrow {
-  width: 30px;
-  height: 30px;
+.slider-btn.left {
+  left: -50px;
+}
+
+.slider-btn.right {
+  right: -30px;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
   color: white;
 }
 
-/* Obraz większy */
-.news-image-wrapper {
-  border: 3px solid var(--violet);
-  padding: 5px;
-  border-radius: 8px;
-  background: white;
-  max-width: 100%;
+@media (max-width: 900px) {
+  .news-box {
+    flex: 0 0 100%;
+    margin: 0.5rem;
+  }
+
+  .slider-btn.left {
+    left: 5px;
+  }
+
+  .slider-btn.right {
+    right: 5px;
+  }
 }
 
-.news-image {
-  width: 100%;
-  max-width: 550px;
-  border-radius: 4px;
-  display: block;
-}
-
-/* Tekst – więcej miejsca */
-.news-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin: 1.5rem auto;
-  color: #333;
-  max-width: 750px;
-  text-align: justify;
-}
-
-/* Data */
-.news-date {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #777;
-  text-align: center;
-}
-
-/* Animacja */
-.slide-fade-enter-active {
-  animation: slideIn 0.5s ease forwards;
-}
-
-.slide-fade-leave-active {
-  animation: slideOut 0.4s ease forwards;
-}
-@media (max-width: 768px) {
-  .news-card {
-    padding: 2rem 1.5rem;
+@media (max-width: 600px) {
+  .news-img {
+    height: 200px;
   }
 
   .news-title {
-    font-size: 1.6rem;
-  }
-
-  .slider-controls {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav-btn {
-    padding: 0.6rem;
-  }
-
-  .arrow {
-    width: 26px;
-    height: 26px;
-  }
-
-  .news-image-wrapper {
-    max-width: 100%;
-    width: 100%;
-    padding: 3px;
-  }
-
-  .news-image {
-    max-width: 100%;
-    border-radius: 4px;
+    font-size: 1.4rem;
   }
 
   .news-text {
     font-size: 1rem;
-    line-height: 1.6;
-    text-align: left;
-    padding: 0 0.2rem;
-  }
-
-  .news-date {
-    font-size: 0.95rem;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOut {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateX(-40px);
   }
 }
 </style>
