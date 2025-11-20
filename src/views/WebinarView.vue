@@ -151,15 +151,91 @@ const prevProject = () => {
     margin: 0 auto;
 }
 
+/* MOBILE - pełna optymalizacja */
 @media (max-width: 900px) {
-    .project-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
 
+    /* Nawigacja strzałkami */
     .project-nav {
         top: 0.5rem;
         right: 0.5rem;
+        gap: 0.3rem;
+    }
+
+    .nav-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .project-hero {
+        width: 100%;
+        padding: 1.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.6rem;
+        margin-top: 2.5rem;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+        
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .intro {
+        font-size: 0.95rem;
+        padding: 1.2rem;
+        border-radius: 12px;
+        border-left-width: 4px;
+    }
+
+    .hero-img {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 4px 18px rgba(91, 44, 111, 0.2);
+    }
+
+    .project-content {
+        flex-direction: column;
+        gap: 2.5rem;
+        padding: 2rem 1rem;
+        max-width: 100%;
+    }
+
+    .left, .right {
+        width: 100%;
     }
 }
+
+/* Bardzo małe ekrany (np. iPhone SE) */
+@media (max-width: 500px) {
+
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .intro {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+
+    .nav-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
 </style>
