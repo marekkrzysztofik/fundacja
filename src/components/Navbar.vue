@@ -57,8 +57,8 @@ const isDesktop = computed(() => windowWidth.value > 768)
 
 
 const navLinks = computed(() => [
+  { href: '#news', label: langState.t.main.navbar.news },
   { href: '#mission', label: langState.t.main.navbar.mission },
-  { href: '#priorities', label: langState.t.main.navbar.priorities },
   { href: '#projects', label: langState.t.main.navbar.projects },
   { href: '#team', label: langState.t.main.navbar.about },
 ])

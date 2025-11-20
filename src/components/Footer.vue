@@ -11,11 +11,11 @@
 
       <nav class="footer-nav"> 
         <h3>{{ langState.t.main.footer.navTitle }}</h3>
+         <a href="#news">{{ langState.t.main.navbar.news }}</a>
         <a href="#mission">{{ langState.t.main.navbar.mission }}</a>
-        <a href="#priorities">{{ langState.t.main.navbar.priorities }}</a>
         <a href="#projects">{{ langState.t.main.navbar.projects }}</a>
         <a href="#team">{{ langState.t.main.navbar.about }}</a>
-        <a href="#contact">{{ langState.t.main.navbar.contact }}</a>
+        
       </nav>
 
 
@@ -75,7 +75,8 @@ import langState from '@/lang/langState'
 }
 
 .footer {
-  background: linear-gradient(135deg, #1c1c3c, #3a3a6a);
+  background-color: #3a3a6a;
+   /* background-color: var(--primary); */
   color: #fff;
   padding: 3rem 1.5rem 1rem;
   font-family: 'Inter', sans-serif;
@@ -134,11 +135,11 @@ import langState from '@/lang/langState'
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .footer-nav a:hover {
-  color: var(--violet);
+  transform: translateX(10px);
 }
 
 .social-links {

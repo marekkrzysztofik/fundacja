@@ -30,7 +30,7 @@ const members = computed(() =>
 <style scoped>
 .board-section {
   margin: 12rem auto;
-  background-color: #f9f9fb;
+  
   padding: 4rem 1.5rem;
   text-align: center;
 }

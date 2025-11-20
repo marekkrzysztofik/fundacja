@@ -1,11 +1,23 @@
 <template>
     <section class="project-hero">
+
+        <!-- 🔥 Nawigacja między projektami -->
+        <div class="project-nav">
+            <button class="nav-btn" @click="prevProject" aria-label="Poprzedni projekt">
+                <ChevronLeft class="icon" />
+            </button>
+
+            <button class="nav-btn" @click="nextProject" aria-label="Następny projekt">
+                <ChevronRight class="icon" />
+            </button>
+        </div>
+
         <h1 class="title">{{ project.title }}</h1>
+
         <div class="container">
             <p class="intro">{{ project.desc }}</p>
             <img :src="project.image" class="hero-img" />
         </div>
-
     </section>
 
     <section class="project-content">
@@ -21,35 +33,90 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import langState from '@/lang/langState'
-
 import WebinarDetails from '@/Actions/WebinarDetails.vue'
 import WebinarSignUp from '@/Actions/WebinarSignUp.vue'
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 
 const route = useRoute()
+const router = useRouter()
 
-// pobieramy projekt po ID z routingu
+// wszystkie projekty (webinary)
+const projects = computed(() => langState.t.main.projects)
+
+// aktualny projekt
 const project = computed(() =>
-    langState.t.main.projects.find(p => p.id === route.params.id)
+    projects.value.find(p => p.id === route.params.id)
 )
+
+// aktualny index
+const currentIndex = computed(() =>
+    projects.value.findIndex(p => p.id === route.params.id)
+)
+
+// przejście do next / previous
+const nextProject = () => {
+    const nextIndex = (currentIndex.value + 1) % projects.value.length
+    router.push(`/webinar/${projects.value[nextIndex].id}`)
+}
+
+const prevProject = () => {
+    const prevIndex =
+        currentIndex.value === 0
+            ? projects.value.length - 1
+            : currentIndex.value - 1
+    router.push(`/webinar/${projects.value[prevIndex].id}`)
+}
 </script>
 
 <style scoped>
+.project-hero {
+    margin: 0 auto;
+    position: relative;
+    width: 90%;
+    padding: 2rem 1rem;
+}
+
+/* 🔥 Strzałki w prawym górnym rogu */
+.project-nav {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-btn {
+    background: var(--violet);
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: #5a33a1;
+    transform: scale(1.1);
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    color: white;
+}
+
 .container {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     display: flex;
     gap: 2rem;
-}
-
-.project-hero {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    padding: 2rem 1rem;
 }
 
 .hero-img {
@@ -58,7 +125,6 @@ const project = computed(() =>
     height: fit-content;
     border-radius: 20px;
     box-shadow: 0 6px 30px rgba(91, 44, 111, 0.25);
-
 }
 
 .title {
@@ -73,7 +139,6 @@ const project = computed(() =>
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 3px 15px rgba(91, 44, 111, 0.1);
-    transition: transform 0.3s ease;
     border-left: 5px solid var(--violet);
 }
 
@@ -86,13 +151,15 @@ const project = computed(() =>
     margin: 0 auto;
 }
 
-
-/* Responsive */
-
 @media (max-width: 900px) {
     .project-content {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .project-nav {
+        top: 0.5rem;
+        right: 0.5rem;
     }
 }
 </style>

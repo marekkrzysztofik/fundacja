@@ -1,66 +1,100 @@
 <template>
-  <section class="news-section">
-    <div class="slider-wrapper">
-      <button @click="prevSlide" class="slider-btn left">
+  <section id="news" class="news-section">
+    <div class="slider-wrapper" ref="slider" @touchstart="startTouch" @touchmove="moveTouch">
+      <!-- DESKTOP ONLY ARROWS -->
+      <button v-if="!isMobile" @click="prevSlide" class="slider-btn left">
         <ChevronLeft class="icon" />
       </button>
 
       <div class="viewport">
         <div class="slides" :style="{
-          transform: `translateX(-${currentIndex * slideWidth}%)`,
+          width: `${newsList.length * (100 / itemsPerView)}%`,
+          transform: `translateX(-${currentIndex * (100 / newsList.length)}%)`,
         }">
-          <div v-for="(item, index) in newsList" :key="index" class="news-box">
+          <div v-for="(item, index) in newsList" :key="index" class="news-box"
+            :style="{ width: 100 / itemsPerView + '%' }">
             <img :src="item.image" class="news-img" :alt="item.title" />
 
             <h3 class="news-title">{{ item.title }}</h3>
 
             <p class="news-text">{{ item.text }}</p>
-            <button v-if="item.button" @click="linkTo('webinars')" class="btn news-btn">{{ item.button }}</button>
+
+            <button v-if="item.button" @click="linkTo('webinars')" class="btn news-btn">
+              {{ item.button }}
+            </button>
 
             <p class="news-date">{{ item.date }}</p>
           </div>
         </div>
       </div>
 
-      <button @click="nextSlide" class="slider-btn right">
+      <button v-if="!isMobile" @click="nextSlide" class="slider-btn right">
         <ChevronRight class="icon" />
       </button>
     </div>
+
+    <!-- MOBILE HINT -->
+    <p v-if="isMobile" class="swipe-hint">← Przesuń palcem →</p>
   </section>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
-import langState from '@/lang/langState'
-import { useRouter } from 'vue-router'
+import { ref, computed } from "vue";
+import { ChevronLeft, ChevronRight } from "lucide-vue-next";
+import { useRouter } from "vue-router";
+import langState from "@/lang/langState";
 
-const router = useRouter()
-const newsList = computed(() => langState.t.main.news)
+const router = useRouter();
 
-const itemsPerSlide = window.innerWidth < 768 ? 1 : 2
+// DATA
+const newsList = computed(() => langState.t.main.news);
 
-const currentIndex = ref(0)
+// RESPONSIVE
+const isMobile = window.innerWidth < 768;
+const itemsPerView = isMobile ? 1 : 2;
 
+// SLIDER INDEX
+const currentIndex = ref(0);
 
-const slideWidth = 100 / itemsPerSlide
+// MAX INDEX
+const maxIndex = computed(() => newsList.value.length - itemsPerView);
 
-const maxIndex = computed(() =>
-  Math.ceil(newsList.value.length / itemsPerSlide)
-)
-
+// NEXT / PREV
 const nextSlide = () => {
-  console.log(maxIndex.value)
-  currentIndex.value = currentIndex.value >= maxIndex.value ? 0 : currentIndex.value + 1
-}
+  currentIndex.value =
+    currentIndex.value >= maxIndex.value ? 0 : currentIndex.value + 1;
+};
 
 const prevSlide = () => {
-  currentIndex.value = currentIndex.value <= 0 ? maxIndex.value : currentIndex.value - 1
-}
+  currentIndex.value =
+    currentIndex.value <= 0 ? maxIndex.value : currentIndex.value - 1;
+};
 
 function linkTo(href) {
   router.push(`/${href}`);
 }
+
+/* SWIPE SUPPORT */
+const touchStartX = ref(0);
+
+const startTouch = (e) => {
+  touchStartX.value = e.touches[0].clientX;
+};
+
+const moveTouch = (e) => {
+  if (!touchStartX.value) return;
+
+  const diff = touchStartX.value - e.touches[0].clientX;
+
+  if (diff > 50) {
+    nextSlide();
+    touchStartX.value = 0;
+  }
+  if (diff < -50) {
+    prevSlide();
+    touchStartX.value = 0;
+  }
+};
 </script>
 
 <style scoped>
@@ -70,14 +104,11 @@ function linkTo(href) {
   background-color: var(--light);
 }
 
-
 .slider-wrapper {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1150px;
   margin: auto;
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
 .viewport {
@@ -87,11 +118,11 @@ function linkTo(href) {
 
 .slides {
   display: flex;
-  transition: transform 0.6s ease;
+  transition: transform 0.5s ease;
 }
 
+/* BOXY */
 .news-box {
-  flex: 0 0 47%;
   background: white;
   margin: 1rem;
   border-radius: 14px;
@@ -103,36 +134,40 @@ function linkTo(href) {
 }
 
 .news-img {
+  width: 100%;
   height: 230px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
 }
-.news-btn {
- width: 200px;
-}
+
 .news-title {
-  min-height: 5rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
+  min-height: 4.4rem;
   color: #4b2c92;
-  
 }
+
 .news-text {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #333;
   flex-grow: 1;
+}
+
+.news-btn {
+  margin-top: 1rem;
+  width: 200px;
 }
 
 .news-date {
   margin-top: 1rem;
   text-align: right;
   color: #777;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
-
+/* DESKTOP ARROWS */
 .slider-btn {
   background: var(--violet);
   border: none;
@@ -147,13 +182,6 @@ function linkTo(href) {
   z-index: 20;
   top: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-  transition: 0.2s;
-}
-
-.slider-btn:hover {
-  transform: translateY(-50%) scale(1.1);
-  background: #5a33a1;
 }
 
 .slider-btn.left {
@@ -170,32 +198,21 @@ function linkTo(href) {
   color: white;
 }
 
-@media (max-width: 900px) {
-  .news-box {
-    flex: 0 0 100%;
-    margin: 0.5rem;
+/* MOBILE */
+@media (max-width: 768px) {
+  .slider-btn {
+    display: none;
   }
 
-  .slider-btn.left {
-    left: 5px;
-  }
-
-  .slider-btn.right {
-    right: 5px;
-  }
-}
-
-@media (max-width: 600px) {
   .news-img {
     height: 200px;
   }
+}
 
-  .news-title {
-    font-size: 1.4rem;
-  }
-
-  .news-text {
-    font-size: 1rem;
-  }
+.swipe-hint {
+  text-align: center;
+  margin-top: 1rem;
+  color: #777;
+  font-size: 0.9rem;
 }
 </style>
